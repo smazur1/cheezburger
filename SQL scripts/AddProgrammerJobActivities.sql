@@ -1,3 +1,6 @@
+
+------------------------------Please use the AddJobActivities------------------------------------------
+
 insert into ch_jobactivity(jobact_id, job_id, actid) values(1, 2, 1);
 insert into ch_jobactivity(jobact_id, job_id, actid) values(2, 2, 2);
 insert into ch_jobactivity(jobact_id, job_id, actid) values(3, 2, 3);
