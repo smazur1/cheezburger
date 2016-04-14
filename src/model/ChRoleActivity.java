@@ -17,11 +17,17 @@ public class ChRoleActivity implements Serializable {
 	@Id
 	private long roleactid;
 
-	private String actcode;
-
 	private String raaccess;
 
-	private String rolecode;
+	//bi-directional many-to-one association to ChActivity
+	@ManyToOne
+	@JoinColumn(name="ACTID")
+	private ChActivity chActivity;
+
+	//bi-directional many-to-one association to ChHrrole
+	@ManyToOne
+	@JoinColumn(name="HR_ID")
+	private ChHrrole chHrrole;
 
 	public ChRoleActivity() {
 	}
@@ -34,14 +40,6 @@ public class ChRoleActivity implements Serializable {
 		this.roleactid = roleactid;
 	}
 
-	public String getActcode() {
-		return this.actcode;
-	}
-
-	public void setActcode(String actcode) {
-		this.actcode = actcode;
-	}
-
 	public String getRaaccess() {
 		return this.raaccess;
 	}
@@ -50,12 +48,20 @@ public class ChRoleActivity implements Serializable {
 		this.raaccess = raaccess;
 	}
 
-	public String getRolecode() {
-		return this.rolecode;
+	public ChActivity getChActivity() {
+		return this.chActivity;
 	}
 
-	public void setRolecode(String rolecode) {
-		this.rolecode = rolecode;
+	public void setChActivity(ChActivity chActivity) {
+		this.chActivity = chActivity;
+	}
+
+	public ChHrrole getChHrrole() {
+		return this.chHrrole;
+	}
+
+	public void setChHrrole(ChHrrole chHrrole) {
+		this.chHrrole = chHrrole;
 	}
 
 }

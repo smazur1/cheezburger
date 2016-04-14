@@ -17,11 +17,20 @@ public class ChActivityDependency implements Serializable {
 	@Id
 	private long actdepid;
 
-	private String actcode;
+	//bi-directional many-to-one association to ChActivity
+	@ManyToOne
+	@JoinColumn(name="DEPACTID")
+	private ChActivity chActivity1;
 
-	private String depactcode;
+	//bi-directional many-to-one association to ChActivity
+	@ManyToOne
+	@JoinColumn(name="ACTID")
+	private ChActivity chActivity2;
 
-	private String jobcode;
+	//bi-directional many-to-one association to ChJobtype
+	@ManyToOne
+	@JoinColumn(name="JOB_ID")
+	private ChJobtype chJobtype;
 
 	public ChActivityDependency() {
 	}
@@ -34,28 +43,28 @@ public class ChActivityDependency implements Serializable {
 		this.actdepid = actdepid;
 	}
 
-	public String getActcode() {
-		return this.actcode;
+	public ChActivity getChActivity1() {
+		return this.chActivity1;
 	}
 
-	public void setActcode(String actcode) {
-		this.actcode = actcode;
+	public void setChActivity1(ChActivity chActivity1) {
+		this.chActivity1 = chActivity1;
 	}
 
-	public String getDepactcode() {
-		return this.depactcode;
+	public ChActivity getChActivity2() {
+		return this.chActivity2;
 	}
 
-	public void setDepactcode(String depactcode) {
-		this.depactcode = depactcode;
+	public void setChActivity2(ChActivity chActivity2) {
+		this.chActivity2 = chActivity2;
 	}
 
-	public String getJobcode() {
-		return this.jobcode;
+	public ChJobtype getChJobtype() {
+		return this.chJobtype;
 	}
 
-	public void setJobcode(String jobcode) {
-		this.jobcode = jobcode;
+	public void setChJobtype(ChJobtype chJobtype) {
+		this.chJobtype = chJobtype;
 	}
 
 }

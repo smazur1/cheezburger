@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 
 /**
@@ -17,7 +18,10 @@ public class ChUserRole implements Serializable {
 	@Id
 	private long userroleid;
 
-	private String rolecode;
+	//bi-directional many-to-one association to ChHrrole
+	@ManyToOne
+	@JoinColumn(name="HR_ID")
+	private ChHrrole chHrrole;
 
 	//bi-directional many-to-one association to ChUser
 	@ManyToOne
@@ -35,12 +39,12 @@ public class ChUserRole implements Serializable {
 		this.userroleid = userroleid;
 	}
 
-	public String getRolecode() {
-		return this.rolecode;
+	public ChHrrole getChHrrole() {
+		return this.chHrrole;
 	}
 
-	public void setRolecode(String rolecode) {
-		this.rolecode = rolecode;
+	public void setChHrrole(ChHrrole chHrrole) {
+		this.chHrrole = chHrrole;
 	}
 
 	public ChUser getChUser() {

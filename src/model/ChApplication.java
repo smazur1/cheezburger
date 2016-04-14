@@ -36,8 +36,6 @@ public class ChApplication implements Serializable {
 
 	private String education;
 
-	private String jobcode;
-
 	private String jobhistory;
 
 	@Temporal(TemporalType.DATE)
@@ -46,6 +44,11 @@ public class ChApplication implements Serializable {
 	private String name;
 
 	private String veteran;
+
+	//bi-directional many-to-one association to ChJobtype
+	@ManyToOne
+	@JoinColumn(name="JOB_ID")
+	private ChJobtype chJobtype;
 
 	//bi-directional many-to-one association to ChApplicationActivity
 	@OneToMany(mappedBy="chApplication")
@@ -126,14 +129,6 @@ public class ChApplication implements Serializable {
 		this.education = education;
 	}
 
-	public String getJobcode() {
-		return this.jobcode;
-	}
-
-	public void setJobcode(String jobcode) {
-		this.jobcode = jobcode;
-	}
-
 	public String getJobhistory() {
 		return this.jobhistory;
 	}
@@ -164,6 +159,14 @@ public class ChApplication implements Serializable {
 
 	public void setVeteran(String veteran) {
 		this.veteran = veteran;
+	}
+
+	public ChJobtype getChJobtype() {
+		return this.chJobtype;
+	}
+
+	public void setChJobtype(ChJobtype chJobtype) {
+		this.chJobtype = chJobtype;
 	}
 
 	public List<ChApplicationActivity> getChApplicationActivities() {

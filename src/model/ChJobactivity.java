@@ -18,11 +18,15 @@ public class ChJobactivity implements Serializable {
 	@Column(name="JOBACT_ID")
 	private long jobactId;
 
-	@Column(name="ACT_CODE")
-	private String actCode;
+	//bi-directional many-to-one association to ChActivity
+	@ManyToOne
+	@JoinColumn(name="ACTID")
+	private ChActivity chActivity;
 
-	@Column(name="JOB_CODE")
-	private String jobCode;
+	//bi-directional many-to-one association to ChJobtype
+	@ManyToOne
+	@JoinColumn(name="JOB_ID")
+	private ChJobtype chJobtype;
 
 	public ChJobactivity() {
 	}
@@ -35,20 +39,20 @@ public class ChJobactivity implements Serializable {
 		this.jobactId = jobactId;
 	}
 
-	public String getActCode() {
-		return this.actCode;
+	public ChActivity getChActivity() {
+		return this.chActivity;
 	}
 
-	public void setActCode(String actCode) {
-		this.actCode = actCode;
+	public void setChActivity(ChActivity chActivity) {
+		this.chActivity = chActivity;
 	}
 
-	public String getJobCode() {
-		return this.jobCode;
+	public ChJobtype getChJobtype() {
+		return this.chJobtype;
 	}
 
-	public void setJobCode(String jobCode) {
-		this.jobCode = jobCode;
+	public void setChJobtype(ChJobtype chJobtype) {
+		this.chJobtype = chJobtype;
 	}
 
 }

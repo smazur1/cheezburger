@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.Date;
 
 
@@ -18,12 +19,15 @@ public class ChApplicationActivity implements Serializable {
 	@Id
 	private long appactid;
 
-	private String actcode;
-
 	@Temporal(TemporalType.DATE)
 	private Date actmoddate;
 
 	private String actstatus;
+
+	//bi-directional many-to-one association to ChActivity
+	@ManyToOne
+	@JoinColumn(name="ACTID")
+	private ChActivity chActivity;
 
 	//bi-directional many-to-one association to ChApplication
 	@ManyToOne
@@ -41,14 +45,6 @@ public class ChApplicationActivity implements Serializable {
 		this.appactid = appactid;
 	}
 
-	public String getActcode() {
-		return this.actcode;
-	}
-
-	public void setActcode(String actcode) {
-		this.actcode = actcode;
-	}
-
 	public Date getActmoddate() {
 		return this.actmoddate;
 	}
@@ -63,6 +59,14 @@ public class ChApplicationActivity implements Serializable {
 
 	public void setActstatus(String actstatus) {
 		this.actstatus = actstatus;
+	}
+
+	public ChActivity getChActivity() {
+		return this.chActivity;
+	}
+
+	public void setChActivity(ChActivity chActivity) {
+		this.chActivity = chActivity;
 	}
 
 	public ChApplication getChApplication() {
