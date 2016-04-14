@@ -1,0 +1,9 @@
+insert into ch_user (userid, username, password) values(1, 'one', '111');
+insert into ch_user (userid, username, password) values(2, 'two', '222');
+insert into ch_user (userid, username, password) values(3, 'three', '333');
+insert into ch_user (userid, username, password) values(4, 'four', '444');
+insert into ch_user (userid, username, password) values(5, 'five', '555');
+insert into ch_user (userid, username, password) values(6, 'six', '666');
+insert into ch_user (userid, username, password) values(7, 'seven', '777');
+insert into ch_user (userid, username, password) values(8, 'eight', '888');
+insert into ch_user (userid, username, password) values(9, 'nine', '999');
