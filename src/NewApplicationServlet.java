@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 /**
  * Servlet implementation class NewApplicationServlet
  */
@@ -37,7 +41,23 @@ public class NewApplicationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String jobtype = request.getParameter("jobType");
+		String name = request.getParameter("name");
+		String address = request.getParameter("address");
+		Date birthday = new Date();
+		try {
+			birthday = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("birthday"));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		String education = request.getParameter("education");
+		String jobHistory = request.getParameter("jobHistory");
+		String references = request.getParameter("references");
+		String drugUse = request.getParameter("drugUse");
+		String veteran = request.getParameter("veteran");
+		String citizen = request.getParameter("citizen");
+
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 }
