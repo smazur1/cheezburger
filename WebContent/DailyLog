@@ -1,0 +1,21 @@
+
+create table CH_HRROLES (
+hr_id int primary key,
+role_code varchar(10),
+role_description varchar(50)
+);
+
+
+
+create table CH_JOBTYPE (
+job_id int primary key,
+job_code varchar(10),
+job_description varchar(50)
+);
+
+
+create table CH_JOBACTIVITY (
+jobact_id int primary key,
+job_code varchar(10),
+act_code varchar(10)
+);
