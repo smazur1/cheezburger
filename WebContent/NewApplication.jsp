@@ -1,5 +1,6 @@
 <!--Eric made this-->
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -10,10 +11,14 @@
 </head>
 <body>
 	<form action="NewApplicationServlet" method="post">
-		Applying for: <input type="text" name="jobType"><br>
+		Applying for: <select name="jobType">
+			<c:forEach items="${jobList}" var="job">
+				<option value="${job.jobId}"><c:out value="${job.jobDescription}" /></option>
+			</c:forEach>
+		</select><br>
 		Name: <input type="text" name="name"><br>
 		Address: <input type="text" name="address"><br>
-		Date of Birth: <input type="date" name="birthday"><br>
+		Date of Birth: <input type="text" name="birthday"><br>
 		Education: <input type="text" name="education"><br>
 		Job History: <br><textarea name="jobHistory" rows="4" cols="40"></textarea><br>
 		References: <br><textarea name="references" rows="4" cols="40"></textarea><br>
