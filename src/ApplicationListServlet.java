@@ -1,27 +1,28 @@
-//made by Eric
+
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import customTools.DBUtil;
-import model.ChUser;
+import model.ChApplication;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class ApplicationListServlet
  */
-@WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/ApplicationListServlet")
+public class ApplicationListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public ApplicationListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,6 +31,7 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doPost(request, response);
 	}
 
@@ -37,17 +39,10 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		String username = request.getParameter("username");
-		String password = request.getParameter("userpass");
-		ChUser currentUser = DBUtil.findUser(username, password);
-		if(currentUser == null) {
-			request.setAttribute("loginError", "Username and password pair was not found.");
-			request.getRequestDispatcher("index.jsp").forward(request, response);
-		} else {
-			session.setAttribute("user", currentUser);
-			request.getRequestDispatcher("ApplicationListServlet").forward(request, response);
-		}
+		// TODO Auto-generated method stub
+		List<ChApplication> applicationList = DBUtil.getApplicationList();
+		request.setAttribute("applicationList", applicationList);
+		request.getRequestDispatcher("ApplicationList.jsp").forward(request, response);
 	}
 
 }
