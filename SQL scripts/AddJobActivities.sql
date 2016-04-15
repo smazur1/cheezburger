@@ -1,0 +1,29 @@
+--------------------------------------------------------
+--  File created - Thursday-April-14-2016   
+--------------------------------------------------------
+REM INSERTING into ORA1.CH_JOBACTIVITY
+SET DEFINE OFF;
+Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (1,2,1);
+Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (2,2,2);
+Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (3,2,3);
+Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (4,2,4);
+Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (5,2,5);
+Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (6,2,6);
+Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (7,2,7);
+Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (8,2,8);
+Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (9,2,9);
+Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (10,1,1);
+Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (11,1,2);
+Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (12,1,3);
+Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (13,1,5);
+Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (14,1,6);
+Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (15,1,7);
+Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (16,1,8);
+Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (17,3,1);
+Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (18,3,2);
+Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (19,3,3);
+Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (20,3,4);
+Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (21,3,5);
+Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (22,3,6);
+Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (23,3,7);
+Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (24,3,8);
