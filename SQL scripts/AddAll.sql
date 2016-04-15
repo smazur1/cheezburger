@@ -157,3 +157,4 @@ Insert into ORA1.CH_USER_ROLE (USERROLEID,USERID,HR_ID) values (6,6,6);
 Insert into ORA1.CH_USER_ROLE (USERROLEID,USERID,HR_ID) values (7,7,7);
 Insert into ORA1.CH_USER_ROLE (USERROLEID,USERID,HR_ID) values (8,8,1);
 Insert into ORA1.CH_USER_ROLE (USERROLEID,USERID,HR_ID) values (9,9,7);
+commit;

@@ -2,17 +2,21 @@
 rem script for building cheezburger tables.
 
 ****************************************************
-drop table ch_activity;
-drop table ch_user;
-drop table ch_hrrole;
-drop table ch_jobtype;
-drop table ch_user_role;
+
+
+
+
+
 drop table ch_role_activity;
+drop table ch_user_role;
 drop table ch_activity_dependency;
 drop table ch_application_activity;
 drop table ch_application;
 drop table ch_jobactivity;
-
+drop table ch_activity;
+drop table ch_user;
+drop table ch_hrrole;
+drop table ch_jobtype;
 
 create table ch_user (
 userid int primary key,
@@ -104,19 +108,15 @@ ADD FOREIGN KEY (userid)
 REFERENCES ch_user(userid)
 ;
 
-alter table ch_hrrole
-add unique (role_code);
 
 ALTER TABLE ch_user_role
 ADD FOREIGN KEY (hr_id)
 REFERENCES ch_hrrole(hr_id)
 ;
 
-alter table ch_activity
-add unique (actcode);
 
-alter table ch_jobtype
-add unique (job_code);
+
+
 
 alter table ch_jobactivity
 add foreign key (job_id)
@@ -160,5 +160,7 @@ references ch_activity (actid);
 
 rem end ddl for CheezburgerHR
 *********************************************************************************
+
+commit;
 
 
