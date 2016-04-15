@@ -170,7 +170,7 @@ public class DBUtil {
 		EntityManager em = emf.createEntityManager();
 		List<ChApplication> appList = null;
 		try {
-			appList = em.createNamedQuery("ChJobtype.findAll", ChApplication.class).getResultList();
+			appList = em.createNamedQuery("ChApplication.findAll", ChApplication.class).getResultList();
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
