@@ -1,14 +1,19 @@
 package customTools;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
+import model.ChActivity;
 import model.ChApplication;
+import model.ChApplicationActivity;
+import model.ChJobactivity;
 import model.ChJobtype;
 import model.ChUser;
 
@@ -20,25 +25,13 @@ public class DBUtil {
 		return emf;
 	}
 	
-	public static void insertApplication(ChApplication application) {
-		EntityManager em = emf.createEntityManager();
-		
-		String qString = "SELECT c From ChApplication c ORDER BY c.appid DESC";
-		try {
-			TypedQuery<ChApplication> findApplications = em.createQuery(qString, ChApplication.class);
-			List<ChApplication> applicationList = findApplications.getResultList();
-			long appId = applicationList.get(0).getAppid() + 1;
-			
-			application.setAppid(appId);
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			em.close();
-		}
-		
+	public static void insertApplication(ChApplication application) {		
+		long appId = DBUtil.getNewApplicationId();
+		application.setAppid(appId);
+		application.setAppstatus("I");
 		DBUtil.insert(application);
+		DBUtil.populateApplicationActivity(application);
 	}
-	
 	
 	public static <T> void insert(Object T) {
 		EntityManager em = emf.createEntityManager();
@@ -109,5 +102,65 @@ public class DBUtil {
 			em.close();
 		}
 		return foundUser;
+	}
+	
+	public static long getNewApplicationId() {
+		EntityManager em = emf.createEntityManager();
+		String qString = "SELECT (max(c.appid) + 1) FROM ChApplication c";
+		
+		Query q = em.createQuery(qString, ChApplication.class);
+		long newId = 0;
+		
+		try {
+			newId = (long) q.getSingleResult();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+		return newId;
+	}
+	
+	public static long getNewApplicationActivityId() {
+		EntityManager em = emf.createEntityManager();
+		String qString = "SELECT (max(c.appactid) + 1) FROM ChApplicationActivity c";
+		
+		Query q = em.createQuery(qString, ChApplication.class);
+		long newId = 0;
+		
+		try {
+			newId = (long) q.getSingleResult();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+		return newId;
+	}
+	
+	public static void populateApplicationActivity(ChApplication popApp) {
+		Date now = new Date();
+		
+		EntityManager em = emf.createEntityManager();
+		String qString = "SELECT c FROM ChJobactivity c WHERE c.chJobtype.jobId = " + popApp.getChJobtype().getJobId();
+		TypedQuery<ChJobactivity> q = em.createQuery(qString, ChJobactivity.class);
+		List<ChJobactivity> jobActivityList = null;
+		try {
+			jobActivityList = q.getResultList();
+			for(ChJobactivity appJobActivity: jobActivityList) {
+				ChActivity activity = appJobActivity.getChActivity();
+				ChApplicationActivity appActivity = new ChApplicationActivity();
+				appActivity.setAppactid(DBUtil.getNewApplicationActivityId());
+				appActivity.setChApplication(popApp);
+				appActivity.setChActivity(activity);
+				appActivity.setActstatus("I");
+				appActivity.setActmoddate(now);
+				DBUtil.insert(appActivity);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
 	}
 }
