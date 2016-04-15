@@ -196,7 +196,7 @@ public class DBUtil {
 		qString += ")";
 		TypedQuery<ChApplicationActivity> q = em.createQuery(qString, ChApplicationActivity.class);
 		try {
-			appActList = null;
+			appActList = null;//NULL?
 		} catch (Exception e) {
 			
 		} finally {
