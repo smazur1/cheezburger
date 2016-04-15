@@ -2,6 +2,10 @@
 rem script for building cheezburger tables.
 
 ****************************************************
+drop table ch_activity;
+drop table ch_user;
+drop table ch_hrrole;
+drop table ch_jobtype;
 drop table ch_user_role;
 drop table ch_role_activity;
 drop table ch_activity_dependency;
