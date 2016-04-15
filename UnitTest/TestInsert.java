@@ -6,7 +6,7 @@ import customTools.DBUtil;;
 public class TestInsert {
 	@Test
 	   public void test_importsingleproduct() {
-		ProcessUser pp=new ProcessUser();
+		
 	      System.out.println("Test if table has been sucessfully imported") ;
 	      int id=pp.UserLogin("user1", "pass1");
 	     // Subscription S = new Subscription(200,2) ;
