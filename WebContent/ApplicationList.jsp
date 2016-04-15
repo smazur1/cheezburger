@@ -16,6 +16,7 @@
 <th> Application ID</th>
 <th> Applicant Name</th>
 <th> Application Status</th>
+<th> Action</th>
 </tr>
 <c:forEach items="${applicationList}" var="applicant">
 			<tr>
