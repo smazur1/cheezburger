@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
 			request.setAttribute("loginError", "Username and password pair was not found.");
 		} else {
 			session.setAttribute("user", currentUser);
-			sendTo = "";
+			sendTo = "ApplicationList.jsp";
 		}
 		request.getRequestDispatcher(sendTo).forward(request, response);
 	}
