@@ -71,6 +71,7 @@ public class NewApplicationServlet extends HttpServlet {
 		newApp.setBirthday(birthday);
 		newApp.setEducation(education);
 		newApp.setJobhistory(jobHistory);
+		newApp.setAppref(references);
 		newApp.setDruguse(drugUse);
 		newApp.setVeteran(veteran);
 		newApp.setCitizen(citizen);
