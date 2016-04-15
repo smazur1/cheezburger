@@ -10,6 +10,7 @@ import javax.persistence.TypedQuery;
 
 import model.ChApplication;
 import model.ChJobtype;
+import model.ChUser;
 
 public class DBUtil {
 
@@ -22,21 +23,20 @@ public class DBUtil {
 	public static void insertApplication(ChApplication application) {
 		EntityManager em = emf.createEntityManager();
 		
-		String qString = "SELECT c.appid From ChApplication c ORDER BY c.appid DESC";
-		long appId = em.createQuery(qString).getFirstResult();
-		application.setAppid(appId);
-		
-		EntityTransaction trans = em.getTransaction();
-		trans.begin();
+		String qString = "SELECT c From ChApplication c ORDER BY c.appid DESC";
 		try {
-			em.persist(application);
-			trans.commit();
+			TypedQuery<ChApplication> findApplications = em.createQuery(qString, ChApplication.class);
+			List<ChApplication> applicationList = findApplications.getResultList();
+			long appId = applicationList.get(0).getAppid() + 1;
+			
+			application.setAppid(appId);
 		} catch (Exception e) {
-			System.out.println(e);
-			trans.rollback();
+			e.printStackTrace();
 		} finally {
 			em.close();
 		}
+		
+		DBUtil.insert(application);
 	}
 	
 	
@@ -83,7 +83,7 @@ public class DBUtil {
 	
 	public static ChJobtype getJobtypeByID(long jobID) {
 		EntityManager em = emf.createEntityManager();
-		String qString = "SELECT c FROM ChJobtype c where c.jobId = " + jobID;
+		String qString = "SELECT c FROM ChJobtype c WHERE c.jobId = " + jobID;
 		TypedQuery<ChJobtype> q = em.createQuery(qString, ChJobtype.class);
 		ChJobtype jobType = null;
 		try {
@@ -96,4 +96,18 @@ public class DBUtil {
 		return jobType;
 	}
 	
+	public static ChUser findUser(String username, String password) {
+		EntityManager em = emf.createEntityManager();
+		String qString = "SELECT c FROM ChUser c WHERE c.username = '" + username + "' AND c.password = '" + password + "'";
+		TypedQuery<ChUser> q = em.createQuery(qString, ChUser.class);
+		ChUser foundUser = null;
+		try {
+			foundUser = q.getSingleResult();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+		return foundUser;
+	}
 }

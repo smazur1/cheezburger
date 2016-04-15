@@ -27,5 +27,7 @@
 		Nationality: <input type="text" name="citizen"><br>
 		<input type="submit" value="Submit Application">
 	</form>
+	
+	<a href="index.jsp">Return to login</a>
 </body>
 </html>
