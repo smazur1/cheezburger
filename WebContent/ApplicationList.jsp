@@ -10,17 +10,24 @@
 <body>
 <!--  this is page 1 -->
 <!-- insert list of applicants here and show their app status -->
-User: ${user.username}          HR Role: ${user.chUserRoles[0].roleDescription}
+<p> User: <c:out value="  ${user.username}" />         HR Role: <c:out value="  ${user.chUserRoles[0].chHrrole.roleDescription}" /></p>
+<table>
+<tr>
+<th> Application ID</th>
+<th> Applicant Name</th>
+<th> Application Status</th>
+</tr>
 <c:forEach items="${applicationList}" var="applicant">
 			<tr>
-				<td><c:out value="${applicant.appid}" /></td>
-				<td><c:out value="${applicant.name}" /></td>
-				<td><c:out value="${applicant.appstatus}" /></td>
+				<td><c:out value="  ${applicant.appid}" /></td>
+				<td><c:out value="  ${applicant.name}" /></td>
+				<td><c:out value="  ${applicant.appstatus}" /></td>
 				<td> <form action="ApplicantServlet" method="Post">
 						<input type="submit" value="view">
 						<input type="hidden" name="appid" value="${applicant.appid}">
 					</form></td>
 			</tr>
 		</c:forEach>
+		</table>
 </body>
 </html>
