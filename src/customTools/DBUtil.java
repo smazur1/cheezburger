@@ -1,6 +1,7 @@
 package customTools;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -13,8 +14,10 @@ import javax.persistence.TypedQuery;
 import model.ChActivity;
 import model.ChApplication;
 import model.ChApplicationActivity;
+import model.ChHrrole;
 import model.ChJobactivity;
 import model.ChJobtype;
+import model.ChRoleActivity;
 import model.ChUser;
 
 public class DBUtil {
@@ -178,4 +181,49 @@ public class DBUtil {
 		}
 		return appList;
 	}
+	
+	public static List<ChApplicationActivity> getApplicationActivityList(ChHrrole role, ChApplication app) {
+		EntityManager em = emf.createEntityManager();
+		List<ChApplicationActivity> appActList = null;
+		List<ChRoleActivity> roleActivityList = role.getChRoleActivities();
+		String qString = "SELECT c FROM ChApplicationActivity WHERE c.chApplication.appid = " + app.getAppid() + " AND (";
+		for(int i = 0; i < roleActivityList.size(); i++) {
+			if(i != 0) {
+				qString += " OR ";
+			}
+			qString += "c.chActivity.actid = " + roleActivityList.get(i).getChActivity().getActid();
+		}
+		qString += ")";
+		TypedQuery<ChApplicationActivity> q = em.createQuery(qString, ChApplicationActivity.class);
+		try {
+			appActList = null;
+		} catch (Exception e) {
+			
+		} finally {
+			em.close();
+		}
+		return appActList;
+	}
+	
+	public static HashMap<ChApplicationActivity, String> getAppActAccessMap(ChHrrole role, ChApplication app) {
+		EntityManager em = emf.createEntityManager();
+		String qString;
+		ChRoleActivity roleAct;
+		HashMap<ChApplicationActivity, String> appActAccessMap = new HashMap<ChApplicationActivity, String>();
+		List<ChApplicationActivity> appActList =DBUtil.getApplicationActivityList(role, app);
+		try {
+		for(ChApplicationActivity appAct: appActList) {
+			qString = "SELECT c FROM ChRoleActivity WHERE c.chHrrole.hrId = " + role.getHrId() + " AND c.chActivity.actid = " + appAct.getChActivity().getActid();
+			TypedQuery<ChRoleActivity> q = em.createQuery(qString, ChRoleActivity.class);
+			roleAct = q.getSingleResult();
+			appActAccessMap.put(appAct, roleAct.getRaaccess());
+		}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+		return appActAccessMap;
+	}
+	
 }
