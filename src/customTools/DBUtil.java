@@ -70,6 +70,8 @@ public class DBUtil {
 			jobList = em.createNamedQuery("ChJobtype.findAll", ChJobtype.class).getResultList();
 		} catch(Exception e) {
 			e.printStackTrace();
+		} finally {
+			em.close();
 		}
 		return jobList;
 	}
@@ -162,5 +164,18 @@ public class DBUtil {
 		} finally {
 			em.close();
 		}
+	}
+	
+	public static List<ChApplication> getApplicationList() {
+		EntityManager em = emf.createEntityManager();
+		List<ChApplication> appList = null;
+		try {
+			appList = em.createNamedQuery("ChJobtype.findAll", ChApplication.class).getResultList();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+		return appList;
 	}
 }
