@@ -38,16 +38,17 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		String sendTo = "index.jsp";
 		String username = request.getParameter("username");
 		String password = request.getParameter("userpass");
 		ChUser currentUser = DBUtil.findUser(username, password);
 		if(currentUser == null) {
 			request.setAttribute("loginError", "Username and password pair was not found.");
-			request.getRequestDispatcher("index.jsp").forward(request, response);
 		} else {
 			session.setAttribute("user", currentUser);
-			request.getRequestDispatcher("ApplicationListServlet").forward(request, response);
+			sendTo = "ApplicationListServlet";
 		}
+		request.getRequestDispatcher(sendTo).forward(request, response);
 	}
 
 }
