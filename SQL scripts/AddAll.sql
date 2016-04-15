@@ -1,14 +1,8 @@
-
-Insert into ORA1.CH_HRROLE (HR_ID,ROLE_CODE,ROLE_DESCRIPTION) values (1,'HRM','HR Manager');
-Insert into ORA1.CH_HRROLE (HR_ID,ROLE_CODE,ROLE_DESCRIPTION) values (2,'HRS','HR Specialist');
-Insert into ORA1.CH_HRROLE (HR_ID,ROLE_CODE,ROLE_DESCRIPTION) values (3,'HRA','HR Assistant');
-Insert into ORA1.CH_HRROLE (HR_ID,ROLE_CODE,ROLE_DESCRIPTION) values (4,'HRH','Healthcare Professional');
-Insert into ORA1.CH_HRROLE (HR_ID,ROLE_CODE,ROLE_DESCRIPTION) values (5,'HRC','Compliance Officer');
-Insert into ORA1.CH_HRROLE (HR_ID,ROLE_CODE,ROLE_DESCRIPTION) values (6,'HIM','Hiring Manager');
-Insert into ORA1.CH_HRROLE (HR_ID,ROLE_CODE,ROLE_DESCRIPTION) values (7,'HGI','Group Interviewer');
-
-
-
+--------------------------------------------------------
+--  File created - Friday-April-15-2016   
+--------------------------------------------------------
+REM INSERTING into ORA1.CH_ACTIVITY
+SET DEFINE OFF;
 Insert into ORA1.CH_ACTIVITY (ACTID,ACTCODE,ACTDESCRIPTION) values (1,'NT','Nationality Check');
 Insert into ORA1.CH_ACTIVITY (ACTID,ACTCODE,ACTDESCRIPTION) values (2,'WR','Work History and Reference Check');
 Insert into ORA1.CH_ACTIVITY (ACTID,ACTCODE,ACTDESCRIPTION) values (3,'DV','Degree Validation');
@@ -18,32 +12,17 @@ Insert into ORA1.CH_ACTIVITY (ACTID,ACTCODE,ACTDESCRIPTION) values (6,'HI','Huma
 Insert into ORA1.CH_ACTIVITY (ACTID,ACTCODE,ACTDESCRIPTION) values (7,'MI','Hiring Manager Interview');
 Insert into ORA1.CH_ACTIVITY (ACTID,ACTCODE,ACTDESCRIPTION) values (8,'GI','Group Interview');
 Insert into ORA1.CH_ACTIVITY (ACTID,ACTCODE,ACTDESCRIPTION) values (9,'CT','Coding Test');
-
-insert into ch_jobtype (job_id, job_code, job_description) values(1, 'ACCT', 'Accountant');
-insert into ch_jobtype (job_id, job_code, job_description) values(2, 'PROG', 'Programmer');
-insert into ch_jobtype (job_id, job_code, job_description) values(3, 'BSAT', 'Business Analyst');
-
-insert into ch_user (userid, username, password) values(1, 'one', '111');
-insert into ch_user (userid, username, password) values(2, 'two', '222');
-insert into ch_user (userid, username, password) values(3, 'three', '333');
-insert into ch_user (userid, username, password) values(4, 'four', '444');
-insert into ch_user (userid, username, password) values(5, 'five', '555');
-insert into ch_user (userid, username, password) values(6, 'six', '666');
-insert into ch_user (userid, username, password) values(7, 'seven', '777');
-insert into ch_user (userid, username, password) values(8, 'eight', '888');
-insert into ch_user (userid, username, password) values(9, 'nine', '999');
-
-
-Insert into ORA1.CH_USER_ROLE (USERROLEID,USERID,HR_ID) values (1,1,1);
-Insert into ORA1.CH_USER_ROLE (USERROLEID,USERID,HR_ID) values (2,2,2);
-Insert into ORA1.CH_USER_ROLE (USERROLEID,USERID,HR_ID) values (3,3,3);
-Insert into ORA1.CH_USER_ROLE (USERROLEID,USERID,HR_ID) values (4,4,4);
-Insert into ORA1.CH_USER_ROLE (USERROLEID,USERID,HR_ID) values (5,5,5);
-Insert into ORA1.CH_USER_ROLE (USERROLEID,USERID,HR_ID) values (6,6,6);
-Insert into ORA1.CH_USER_ROLE (USERROLEID,USERID,HR_ID) values (7,7,7);
-Insert into ORA1.CH_USER_ROLE (USERROLEID,USERID,HR_ID) values (8,8,1);
-Insert into ORA1.CH_USER_ROLE (USERROLEID,USERID,HR_ID) values (9,9,7);
-
+REM INSERTING into ORA1.CH_HRROLE
+SET DEFINE OFF;
+Insert into ORA1.CH_HRROLE (HR_ID,ROLE_CODE,ROLE_DESCRIPTION) values (1,'HRM','HR Manager');
+Insert into ORA1.CH_HRROLE (HR_ID,ROLE_CODE,ROLE_DESCRIPTION) values (2,'HRS','HR Specialist');
+Insert into ORA1.CH_HRROLE (HR_ID,ROLE_CODE,ROLE_DESCRIPTION) values (3,'HRA','HR Assistant');
+Insert into ORA1.CH_HRROLE (HR_ID,ROLE_CODE,ROLE_DESCRIPTION) values (4,'HRH','Healthcare Professional');
+Insert into ORA1.CH_HRROLE (HR_ID,ROLE_CODE,ROLE_DESCRIPTION) values (5,'HRC','Compliance Officer');
+Insert into ORA1.CH_HRROLE (HR_ID,ROLE_CODE,ROLE_DESCRIPTION) values (6,'HIM','Hiring Manager');
+Insert into ORA1.CH_HRROLE (HR_ID,ROLE_CODE,ROLE_DESCRIPTION) values (7,'HGI','Group Interviewer');
+REM INSERTING into ORA1.CH_JOBACTIVITY
+SET DEFINE OFF;
 Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (1,2,1);
 Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (2,2,2);
 Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (3,2,3);
@@ -68,7 +47,13 @@ Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (21,3,5);
 Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (22,3,6);
 Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (23,3,7);
 Insert into ORA1.CH_JOBACTIVITY (JOBACT_ID,JOB_ID,ACTID) values (24,3,8);
-
+REM INSERTING into ORA1.CH_JOBTYPE
+SET DEFINE OFF;
+Insert into ORA1.CH_JOBTYPE (JOB_ID,JOB_CODE,JOB_DESCRIPTION) values (1,'ACCT','Accountant');
+Insert into ORA1.CH_JOBTYPE (JOB_ID,JOB_CODE,JOB_DESCRIPTION) values (2,'PROG','Programmer');
+Insert into ORA1.CH_JOBTYPE (JOB_ID,JOB_CODE,JOB_DESCRIPTION) values (3,'BSAT','Business Analyst');
+REM INSERTING into ORA1.CH_ROLE_ACTIVITY
+SET DEFINE OFF;
 Insert into ORA1.CH_ROLE_ACTIVITY (ROLEACTID,HR_ID,ACTID,RAACCESS) values (1,5,1,'1');
 Insert into ORA1.CH_ROLE_ACTIVITY (ROLEACTID,HR_ID,ACTID,RAACCESS) values (2,3,2,'1');
 Insert into ORA1.CH_ROLE_ACTIVITY (ROLEACTID,HR_ID,ACTID,RAACCESS) values (3,2,3,'1');
@@ -97,3 +82,25 @@ Insert into ORA1.CH_ROLE_ACTIVITY (ROLEACTID,HR_ID,ACTID,RAACCESS) values (25,7,
 Insert into ORA1.CH_ROLE_ACTIVITY (ROLEACTID,HR_ID,ACTID,RAACCESS) values (26,7,7,'0');
 Insert into ORA1.CH_ROLE_ACTIVITY (ROLEACTID,HR_ID,ACTID,RAACCESS) values (27,7,8,'1');
 Insert into ORA1.CH_ROLE_ACTIVITY (ROLEACTID,HR_ID,ACTID,RAACCESS) values (28,7,9,'1');
+REM INSERTING into ORA1.CH_USER
+SET DEFINE OFF;
+Insert into ORA1.CH_USER (USERID,USERNAME,PASSWORD) values (1,'one','111');
+Insert into ORA1.CH_USER (USERID,USERNAME,PASSWORD) values (2,'two','222');
+Insert into ORA1.CH_USER (USERID,USERNAME,PASSWORD) values (3,'three','333');
+Insert into ORA1.CH_USER (USERID,USERNAME,PASSWORD) values (4,'four','444');
+Insert into ORA1.CH_USER (USERID,USERNAME,PASSWORD) values (5,'five','555');
+Insert into ORA1.CH_USER (USERID,USERNAME,PASSWORD) values (6,'six','666');
+Insert into ORA1.CH_USER (USERID,USERNAME,PASSWORD) values (7,'seven','777');
+Insert into ORA1.CH_USER (USERID,USERNAME,PASSWORD) values (8,'eight','888');
+Insert into ORA1.CH_USER (USERID,USERNAME,PASSWORD) values (9,'nine','999');
+REM INSERTING into ORA1.CH_USER_ROLE
+SET DEFINE OFF;
+Insert into ORA1.CH_USER_ROLE (USERROLEID,USERID,HR_ID) values (1,1,1);
+Insert into ORA1.CH_USER_ROLE (USERROLEID,USERID,HR_ID) values (2,2,2);
+Insert into ORA1.CH_USER_ROLE (USERROLEID,USERID,HR_ID) values (3,3,3);
+Insert into ORA1.CH_USER_ROLE (USERROLEID,USERID,HR_ID) values (4,4,4);
+Insert into ORA1.CH_USER_ROLE (USERROLEID,USERID,HR_ID) values (5,5,5);
+Insert into ORA1.CH_USER_ROLE (USERROLEID,USERID,HR_ID) values (6,6,6);
+Insert into ORA1.CH_USER_ROLE (USERROLEID,USERID,HR_ID) values (7,7,7);
+Insert into ORA1.CH_USER_ROLE (USERROLEID,USERID,HR_ID) values (8,8,1);
+Insert into ORA1.CH_USER_ROLE (USERROLEID,USERID,HR_ID) values (9,9,7);
