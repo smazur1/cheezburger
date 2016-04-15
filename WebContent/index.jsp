@@ -15,6 +15,6 @@
 		<input type="submit" value="Login">
 	</form>
 	
-	<a href="NewApplication.jsp">New Application</a>
+	<a href="NewApplicationFormServlet">New Application</a>
 </body>
 </html>
