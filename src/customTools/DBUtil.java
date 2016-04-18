@@ -256,4 +256,19 @@ public class DBUtil {
 		return app;
 	}
 	
+	public static ChApplicationActivity getApplicationActivityByID(long appid, long actid) {
+		EntityManager em=DBUtil.getEmFactory().createEntityManager();
+		String qString = "SELECT c FROM ChApplicationActivity c WHERE c.chApplication.appid = " + appid + " AND c.chActivity.actid = " + actid;
+		TypedQuery<ChApplicationActivity> q = em.createQuery(qString, ChApplicationActivity.class);
+		ChApplicationActivity app = null;
+		try {
+			app = q.getSingleResult();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+		return app;
+	}
+	
 }
