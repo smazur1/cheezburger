@@ -26,8 +26,9 @@ public class TestAccessMap {
 		System.out.println(ap.getAddress());
 		map=DBUtil.getAppActAccessMap(role.getChHrrole(), getApplicationByID(1));
 	      System.out.println("Test if method has been sucessfully worked") ;  
-	      
-	      assertEquals(map.get(getApplicationActivityByID(1)),"1") ;
+	      System.out.println(map.size());
+	      System.out.println(getApplicationActivityByID(1).getChActivity().getActcode());
+	      assertEquals(map.get(getApplicationActivityByID(1)),"0") ;
 	   }
 	public static ChApplication getApplicationByID(long appid) {
 		EntityManager em=DBUtil.getEmFactory().createEntityManager();
