@@ -1,7 +1,7 @@
 package customTools;
 
 import java.util.Date;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -205,11 +205,11 @@ public class DBUtil {
 		return appActList;
 	}
 	
-	public static HashMap<ChApplicationActivity, String> getAppActAccessMap(ChHrrole role, ChApplication app) {
+	public static LinkedHashMap<ChApplicationActivity, String> getAppActAccessMap(ChHrrole role, ChApplication app) {
 		EntityManager em = emf.createEntityManager();
 		String qString;
 		ChRoleActivity roleAct;
-		HashMap<ChApplicationActivity, String> appActAccessMap = new HashMap<ChApplicationActivity, String>();
+		LinkedHashMap<ChApplicationActivity, String> appActAccessMap = new LinkedHashMap<ChApplicationActivity, String>();
 		List<ChApplicationActivity> appActList =DBUtil.getApplicationActivityList(role, app);
 		try {
 		for(ChApplicationActivity appAct: appActList) {

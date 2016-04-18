@@ -1,7 +1,7 @@
 
 
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -46,8 +46,8 @@ public class ApplicationActivityListServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		ChUser current = (ChUser)session.getAttribute("user");
 		ChApplication application = (ChApplication) session.getAttribute("application");
-		HashMap<ChApplicationActivity, String> accessMap = DBUtil.getAppActAccessMap(current.getChUserRoles().get(0).getChHrrole(), application);
-		request.setAttribute("activitymap", accessMap);
+		LinkedHashMap<ChApplicationActivity, String> accessMap = DBUtil.getAppActAccessMap(current.getChUserRoles().get(0).getChHrrole(), application);
+		session.setAttribute("activitymap", accessMap);
 		request.getRequestDispatcher("Applicant.jsp").forward(request, response);
 	}
 
