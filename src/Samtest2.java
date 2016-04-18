@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -40,12 +41,21 @@ public class Samtest2 {
 		String status = "I";
 		long jobid = 2;
 		long appid = 1;
-		
+		ArrayList<ChApplicationActivity> incompletedepactlist = null;
 		
 		//		testSQL(actid, status);
 		// testjdbc(actid, status);
-		getListByJobId(jobid, actid, appid);
+		 incompletedepactlist = getListByJobId(jobid, actid, appid);
 
+		if (incompletedepactlist != null) {
+			for(ChApplicationActivity depstatus: incompletedepactlist) {
+				System.out.println("returned app id = " + depstatus.getChApplication().getAppid());
+				System.out.println("returned dep activity  = " + depstatus.getChActivity().getActid());
+				System.out.println("returned dep status = " + depstatus.getActstatus());
+		
+		
+			}
+		}
 	}
 
 	// test get dependent activity
@@ -53,7 +63,7 @@ public class Samtest2 {
 
 	///
 
-	public static List<ChActivityDependency> getListByJobId(long _job_id, long _actid, long _appid) {
+	public static ArrayList<ChApplicationActivity> getListByJobId(long _job_id, long _actid, long _appid) {
 		//
 		EntityManager em = getEmFactory().createEntityManager();
 		String qString = "Select c from ChActivityDependency c where c.chJobtype.jobId = :jobId "
@@ -63,7 +73,8 @@ public class Samtest2 {
 		q.setParameter("actid", _actid);
 
 		List<ChActivityDependency> deplist = null;
-
+        ArrayList<ChApplicationActivity> incompletedeplist = new ArrayList<ChApplicationActivity>();
+        ChApplicationActivity indepact = null;
 
 		try {
 
@@ -80,15 +91,17 @@ public class Samtest2 {
 			if (deplist != null) {
 				for(ChActivityDependency depact: deplist) {
 					System.out.println("dep activity = " + depact.getChActivity1().getActid());
-	//				
-					getDepStatusList(_appid, depact);
-	//				
+					
+					indepact = getDepStatus (_appid, depact);  
+					if (indepact != null) {
+						incompletedeplist.add(indepact);
+					}
 				}
 			}
-			return deplist;
+			return incompletedeplist;
 		}
 	}
-	public static void getDepStatusList(long _appid, ChActivityDependency _depact) {
+	public static ChApplicationActivity getDepStatus(long _appid, ChActivityDependency _depact) {
 		//
 		EntityManager em = getEmFactory().createEntityManager();
 		String qString = "Select aa from ChApplicationActivity aa "
@@ -102,14 +115,14 @@ public class Samtest2 {
 		q.setParameter("actid", _depact.getChActivity1().getActid());
 		q.setParameter("actstatus", "I" );
 
-		List<ChApplicationActivity> depstatuslist = null;
+		ChApplicationActivity incompletedepact = null;
 
 
 		try {
 
-			depstatuslist = q.getResultList();
-			if (depstatuslist == null || depstatuslist.isEmpty())
-				depstatuslist = null;
+			incompletedepact = q.getSingleResult();
+	//		if (incompletedepact == null || incompletedepact.isEmpty())
+	//			depstatuslist = null;
 
 		} catch (Exception e) {
 			System.out.println(e);
@@ -117,18 +130,19 @@ public class Samtest2 {
 
 			em.close();
 			System.out.println("In depStatusList");
-			if (depstatuslist != null) {
-				for(ChApplicationActivity depstatus: depstatuslist) {
-					System.out.println("app id = " + depstatus.getChApplication().getAppid());
-					System.out.println("dep activity in depstatus = " + depstatus.getChActivity().getActid());
-					System.out.println("dep status = " + depstatus.getActstatus());
+	//		if (depstatuslist != null) {
+	//			for(ChApplicationActivity depstatus: depstatuslist) {
+	//				System.out.println("app id = " + depstatus.getChApplication().getAppid());
+	//				System.out.println("dep activity in depstatus = " + depstatus.getChActivity().getActid());
+	//				System.out.println("dep status = " + depstatus.getActstatus());
 	//				
 	//				getDepStatusList(_appid, depact);
 	//				
-				}
-			}
-	//		return deplist;
+				
+			
+			return incompletedepact;
 		}
+		
 	}	
 	
 
