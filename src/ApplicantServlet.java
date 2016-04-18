@@ -6,18 +6,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import customTools.DBUtil;
+import model.ChApplication;
 
 /**
  * Servlet implementation class SessionApplicationServlet
  */
 @WebServlet("/SessionApplicationServlet")
-public class SessionApplicationServlet extends HttpServlet {
+public class ApplicantServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SessionApplicationServlet() {
+    public ApplicantServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,7 +31,7 @@ public class SessionApplicationServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doPost(request, response);
 	}
 
 	/**
@@ -35,7 +39,11 @@ public class SessionApplicationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		HttpSession session = request.getSession();
+		long appID = Long.parseLong(request.getParameter("appid"));
+		ChApplication thisApp = DBUtil.getApplicationByID(appID);
+		session.setAttribute("application", thisApp);
+		request.getRequestDispatcher("ApplicationActivityListServlet").forward(request, response);
 	}
 
 }

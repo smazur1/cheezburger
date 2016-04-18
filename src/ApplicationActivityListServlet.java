@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import customTools.DBUtil;
+import model.ChApplication;
 import model.ChApplicationActivity;
 import model.ChUser;
 
@@ -44,8 +45,8 @@ public class ApplicationActivityListServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		ChUser current = (ChUser)session.getAttribute("user");
-		long appID = Long.parseLong(request.getParameter("appid"));
-		HashMap<ChApplicationActivity, String> accessMap = DBUtil.getAppActAccessMap(current.getChUserRoles().get(0).getChHrrole(), DBUtil.getApplicationByID(appID));
+		ChApplication application = (ChApplication) session.getAttribute("application");
+		HashMap<ChApplicationActivity, String> accessMap = DBUtil.getAppActAccessMap(current.getChUserRoles().get(0).getChHrrole(), application);
 		request.setAttribute("activitymap", accessMap);
 		request.getRequestDispatcher("Applicant.jsp").forward(request, response);
 	}
