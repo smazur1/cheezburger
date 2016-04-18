@@ -59,7 +59,7 @@ public class UpdateNationalityServlet extends HttpServlet {
 		DBUtil.update(application);
 		
 		session.setAttribute("application", application);
-		request.getRequestDispatcher("ApplicationActivityListServlet");
+		request.getRequestDispatcher("ApplicationActivityListServlet").forward(request, response);
 	}
 
 }
