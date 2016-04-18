@@ -1,6 +1,6 @@
 import static org.junit.Assert.* ;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map.Entry;
 
 import javax.persistence.EntityManager;
@@ -20,19 +20,17 @@ import model.ChUserRole;
 public class TestAccessMap {
 	@Test
 	   public void test_updatesingle() {
-		HashMap<ChApplicationActivity, String> map=new HashMap<ChApplicationActivity, String>();
+		LinkedHashMap<ChApplicationActivity, String> map=new LinkedHashMap<ChApplicationActivity, String>();
 		ChUser currentUser=DBUtil.findUser("one", "111");
 		ChUserRole role=currentUser.getChUserRoles().get(0);
 		ChApplication ap=getApplicationByID(1);
 		System.out.println(ap.getAddress());
 		map=DBUtil.getAppActAccessMap(role.getChHrrole(), getApplicationByID(1));
 	      System.out.println("Test if method has been sucessfully worked") ;  
-	   //  for(Entry<ChApplicationActivity,String> e: map.entrySet()){
-	   // 	 System.out.println(e.getKey().getChActivity().getActdescription() + e.getValue());
-	   //   }
-	      ChApplicationActivity apa=getApplicationActivityByID(1);
-	      
-	      assertEquals(map.containsValue("1"),true) ;
+	     for(Entry<ChApplicationActivity,String> e: map.entrySet()){
+	    	 System.out.println(e.getKey().getChActivity().getActdescription() + e.getValue());
+	      }
+	      assertEquals(map.size(),6) ;
 	   }
 	public static ChApplication getApplicationByID(long appid) {
 		EntityManager em=DBUtil.getEmFactory().createEntityManager();
