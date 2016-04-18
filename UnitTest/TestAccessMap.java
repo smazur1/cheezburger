@@ -22,6 +22,8 @@ public class TestAccessMap {
 		HashMap<ChApplicationActivity, String> map=new HashMap<ChApplicationActivity, String>();
 		ChUser currentUser=DBUtil.findUser("one", "111");
 		ChUserRole role=currentUser.getChUserRoles().get(0);
+		ChApplication ap=getApplicationByID(1);
+		System.out.println(ap.getAddress());
 		map=DBUtil.getAppActAccessMap(role.getChHrrole(), getApplicationByID(1));
 	      System.out.println("Test if method has been sucessfully worked") ;  
 	      
