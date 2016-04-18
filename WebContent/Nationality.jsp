@@ -14,19 +14,15 @@
 <p> User: <c:out value="  ${user.username}" />         HR Role: <c:out value="  ${user.chUserRoles[0].chHrrole.roleDescription}" /></p>
 <p>
 <table>
-<tr>
-<th> Incomplete Dependent Activities</th>
-
-</tr>
-<c:forEach items="${depactlist}" var="depact">
-			<tr>
-				<td><c:out value="  ${depact.chActivity.actcode}" /></td>
-				
-				
-					
-			</tr>
-		</c:forEach>
-		</table>
+  <tr>
+    <th> Incomplete Dependent Activities</th>
+  </tr>
+  <c:forEach items="${depactlist}" var="depact">
+	<tr>
+		<td><c:out value="  ${depact.chActivity.actdescription}" /></td>
+	</tr>
+  </c:forEach>
+</table>
 
 
 
@@ -55,9 +51,14 @@
 	-->
 	
 	<form action="UpdateNationalityServlet" method="Post">
-						<input type="submit" value="view">
-						<input type="hidden" name="appid" value="${applicant.appid}">
+						<input type="submit" value="Confirm">
+						<input type="hidden" name="status" value="P">
 					</form>
+					
+	<form action="UpdateNationalityServlet" method="Post">
+						<input type="submit" value="Reject">
+						<input type="hidden" name="status" value="F">
+					</form>				
 	
 <form action="LogoutServlet" method="post">
 	<input type="submit" value="Logout">
