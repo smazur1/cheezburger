@@ -43,6 +43,7 @@ public class UpdateNationalityServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
+		String sendTo = "ApplicationActivityListServlet";
 		Date now = new Date();
 		ChApplication application = (ChApplication) session.getAttribute("application");
 		String appActStatus = request.getParameter("status");
@@ -55,11 +56,12 @@ public class UpdateNationalityServlet extends HttpServlet {
 		application.setModdate(now);
 		if(appActStatus.equalsIgnoreCase("F")) {
 			application.setAppstatus("F");
+			sendTo = "Rejection.jsp";
 		}
 		DBUtil.update(application);
 		
 		session.setAttribute("application", application);
-		request.getRequestDispatcher("ApplicationActivityListServlet").forward(request, response);
+		request.getRequestDispatcher(sendTo).forward(request, response);
 	}
 
 }
