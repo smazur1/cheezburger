@@ -20,7 +20,7 @@
 </tr>
 <c:forEach items="${depactlist}" var="depact">
 			<tr>
-				<td><c:out value="  ${depact.getChActivity.getActcode()}" /></td>
+				<td><c:out value="  ${depact.chActivity.actcode}" /></td>
 				
 				
 					
