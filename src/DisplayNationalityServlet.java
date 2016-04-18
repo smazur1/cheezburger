@@ -1,6 +1,7 @@
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -12,6 +13,8 @@ import javax.servlet.http.HttpSession;
 
 import customTools.DBUtil;
 import model.ChApplication;
+import model.ChApplicationActivity;
+import customTools.DependencyCheck;
 
 /**
  * Servlet implementation class ApplicationListServlet
@@ -45,10 +48,16 @@ public class DisplayNationalityServlet extends HttpServlet {
 		
 		ChApplication ca = (ChApplication) session.getAttribute("application" );
 		long localactid = 1;  //  "NT"
+	    ArrayList<ChApplicationActivity> depactlist = DependencyCheck.getListByJobId
+	    		(ca.getChJobtype().getJobId(), localactid, ca.getAppid());		
 		//  check if incomplete dependant activities exist
 		
 		
 	//	request.setAttribute("applicationList", applicationList);
+	    if (!depactlist.isEmpty()) {
+	    	request.setAttribute("dependentmessage", "There are dependent activities for this application");
+	    }
+	    request.setAttribute("depactlist", depactlist);
 		request.getRequestDispatcher("Nationality.jsp").forward(request, response);
 	}
 
