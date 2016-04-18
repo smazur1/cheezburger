@@ -66,6 +66,9 @@ public class DisplayNationalityServlet extends HttpServlet {
 	//	request.setAttribute("applicationList", applicationList);
 	    if (!depactlist.isEmpty()) {
 	    	request.setAttribute("depmessage", "There are dependent activities for this application");
+	    	request.setAttribute("depflag", "1");
+	    } else {
+	    	request.setAttribute("depflag", "0");
 	    }
 	    request.setAttribute("depactlist", depactlist);
 		request.getRequestDispatcher("Nationality.jsp").forward(request, response);
