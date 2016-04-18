@@ -15,13 +15,13 @@ import model.ChApplication;
  * Servlet implementation class SessionApplicationServlet
  */
 @WebServlet("/SessionApplicationServlet")
-public class ApplicantServlet extends HttpServlet {
+public class SessionApplicationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ApplicantServlet() {
+    public SessionApplicationServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
