@@ -40,7 +40,7 @@ public class ApplicantServlet extends HttpServlet {
 		String actid = request.getParameter("actid");
 		
 		switch(actid) {
-		case "1": sendTo = "";
+		case "1": sendTo = "DisplayNationalityServlet";
 		break;
 		case "2": sendTo = "";
 		break;
