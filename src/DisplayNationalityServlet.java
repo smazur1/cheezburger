@@ -48,10 +48,20 @@ public class DisplayNationalityServlet extends HttpServlet {
 		
 		ChApplication ca = (ChApplication) session.getAttribute("application" );
 		long localactid = 1;  //  "NT"
+		
+	//	
+		System.out.println("before dependency check");
+		System.out.println("ca.getChJobtype().getJObId = " + ca.getChJobtype().getJobId());
+		System.out.println("localactid = " + localactid);
+		System.out.println("ca.getAppid = " + ca.getAppid());
+		
+	//	
+		
+		
 	    ArrayList<ChApplicationActivity> depactlist = DependencyCheck.getListByJobId
 	    		(ca.getChJobtype().getJobId(), localactid, ca.getAppid());		
 		//  check if incomplete dependant activities exist
-		
+	    System.out.println("after dependency check");
 		
 	//	request.setAttribute("applicationList", applicationList);
 	    if (!depactlist.isEmpty()) {
