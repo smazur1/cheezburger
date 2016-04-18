@@ -186,19 +186,19 @@ public class DBUtil {
 		EntityManager em = emf.createEntityManager();
 		List<ChApplicationActivity> appActList = null;
 		List<ChRoleActivity> roleActivityList = role.getChRoleActivities();
-		String qString = "SELECT c FROM ChApplicationActivity WHERE c.chApplication.appid = " + app.getAppid() + " AND (";
+		String qString = "SELECT c FROM ChApplicationActivity c WHERE c.chApplication.appid = " + app.getAppid() + " AND (";
 		for(int i = 0; i < roleActivityList.size(); i++) {
 			if(i != 0) {
 				qString += " OR ";
 			}
 			qString += "c.chActivity.actid = " + roleActivityList.get(i).getChActivity().getActid();
 		}
-		qString += ")";
+		qString += ") ORDER BY c.appactid";
 		TypedQuery<ChApplicationActivity> q = em.createQuery(qString, ChApplicationActivity.class);
 		try {
-			appActList = null;//NULL?
+			appActList = q.getResultList();
 		} catch (Exception e) {
-			
+			e.printStackTrace();
 		} finally {
 			em.close();
 		}
@@ -213,7 +213,7 @@ public class DBUtil {
 		List<ChApplicationActivity> appActList =DBUtil.getApplicationActivityList(role, app);
 		try {
 		for(ChApplicationActivity appAct: appActList) {
-			qString = "SELECT c FROM ChRoleActivity WHERE c.chHrrole.hrId = " + role.getHrId() + " AND c.chActivity.actid = " + appAct.getChActivity().getActid();
+			qString = "SELECT c FROM ChRoleActivity c WHERE c.chHrrole.hrId = " + role.getHrId() + " AND c.chActivity.actid = " + appAct.getChActivity().getActid();
 			TypedQuery<ChRoleActivity> q = em.createQuery(qString, ChRoleActivity.class);
 			roleAct = q.getSingleResult();
 			appActAccessMap.put(appAct, roleAct.getRaaccess());
