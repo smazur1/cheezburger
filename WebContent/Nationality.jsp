@@ -12,7 +12,21 @@
 <!--  this is page 1 -->
 <!-- insert list of applicants here and show their app status -->
 <p> User: <c:out value="  ${user.username}" />         HR Role: <c:out value="  ${user.chUserRoles[0].chHrrole.roleDescription}" /></p>
+<p>
+<table>
+<tr>
+<th> Incomplete Dependent Activities</th>
 
+</tr>
+<c:forEach items="${depactlist}" var="depact">
+			<tr>
+				<td><c:out value="  ${depact.getChActivity.getActcode()}" /></td>
+				
+				
+					
+			</tr>
+		</c:forEach>
+		</table>
 
 
 
