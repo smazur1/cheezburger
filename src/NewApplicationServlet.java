@@ -77,7 +77,7 @@ public class NewApplicationServlet extends HttpServlet {
 		newApp.setCitizen(citizen);
 		newApp.setCreatedate(now);
 		newApp.setModdate(now);
-		
+	//	newApp.setAppstatus("I");
 		DBUtil.insertApplication(newApp);
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
