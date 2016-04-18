@@ -23,7 +23,7 @@
 				<td><c:out value="  ${applicant.appid}" /></td>
 				<td><c:out value="  ${applicant.name}" /></td>
 				<td><c:out value="  ${applicant.appstatus}" /></td>
-				<td> <form action="ApplicationActivityListServlet" method="Post">
+				<td> <form action="ApplicantServlet" method="Post">
 						<input type="submit" value="view">
 						<input type="hidden" name="appid" value="${applicant.appid}">
 					</form></td>
