@@ -11,6 +11,23 @@
 <!-- this is page 2 -->
 <p> User: <c:out value="  ${user.username}" />         HR Role: <c:out value="  ${user.chUserRoles[0].chHrrole.roleDescription}" /></p>
 <table>
+<c:forEach items="${activitymap}" var="entry">
+			<tr>
+				<td><c:out value="${entry.key.chActivity.actdescription}" /></td>
+				<td> 
+				<c:if test="${entry.value==1}">
+   <form action="ApplicantServlet" method="Post">
+						<input type="submit" value="view">
+						<input type="hidden" name="appid" value="${entry.key.chApplication.appid}">
+					</form>
+</c:if>
+</td>
+			</tr>
+		</c:forEach>
+		</table>
+		
+		
+<table>
 <tr>
 <th> Activity</th>
 <th> Activity Status</th>
