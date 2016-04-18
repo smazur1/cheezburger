@@ -226,4 +226,34 @@ public class DBUtil {
 		return appActAccessMap;
 	}
 	
+	public static ChApplication getApplicationByID(long appid) {
+		EntityManager em=DBUtil.getEmFactory().createEntityManager();
+		String qString = "SELECT c FROM ChApplication c WHERE c.appid = " + appid;
+		TypedQuery<ChApplication> q = em.createQuery(qString, ChApplication.class);
+		ChApplication app = null;
+		try {
+			app = q.getSingleResult();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+		return app;
+	}
+	
+	public static ChApplicationActivity getApplicationActivityByID(long appactid) {
+		EntityManager em=DBUtil.getEmFactory().createEntityManager();
+		String qString = "SELECT c FROM ChApplicationActivity c WHERE c.appactid = " + appactid;
+		TypedQuery<ChApplicationActivity> q = em.createQuery(qString, ChApplicationActivity.class);
+		ChApplicationActivity app = null;
+		try {
+			app = q.getSingleResult();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+		return app;
+	}
+	
 }
