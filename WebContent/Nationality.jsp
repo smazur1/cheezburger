@@ -5,9 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Welcome Back</title>
+<title>Nationality Check</title>
 </head>
 <body>
+<h2>Citizenship Verification Check</h2>
 <!--  this is page 1 -->
 <!-- insert list of applicants here and show their app status -->
 <p> User: <c:out value="  ${user.username}" />         HR Role: <c:out value="  ${user.chUserRoles[0].chHrrole.roleDescription}" /></p>
