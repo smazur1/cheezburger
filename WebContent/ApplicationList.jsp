@@ -19,15 +19,21 @@
 <th> Action</th>
 </tr>
 <c:forEach items="${applicationList}" var="applicant">
+         
 			<tr>
 				<td><c:out value="  ${applicant.appid}" /></td>
 				<td><c:out value="  ${applicant.name}" /></td>
 				<td><c:out value="  ${applicant.appstatus}" /></td>
-				<td> <form action="SessionApplicationServlet" method="Post">
+				<td>
+				 <c:if test="${applicant.appstatus!=\"F\"}">
+					<form action="SessionApplicationServlet" method="Post">
 						<input type="submit" value="view">
 						<input type="hidden" name="appid" value="${applicant.appid}">
-					</form></td>
+					</form>
+				</c:if>	
+				</td>
 			</tr>
+			
 		</c:forEach>
 		</table>
 <form action="LogoutServlet" method="post">
