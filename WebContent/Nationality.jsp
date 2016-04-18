@@ -13,17 +13,18 @@
 <!-- insert list of applicants here and show their app status -->
 <p> User: <c:out value="  ${user.username}" />         HR Role: <c:out value="  ${user.chUserRoles[0].chHrrole.roleDescription}" /></p>
 <p>
-
-<table>
-  <tr>
-    <th> Incomplete Dependent Activities</th>
-  </tr>
-  <c:forEach items="${depactlist}" var="depact">
-	<tr>
-		<td><c:out value="  ${depact.chActivity.actdescription}" /></td>
-	</tr>
-  </c:forEach>
-</table>
+<c:if test="${depflag == \"1\"}">
+	<table>
+	  <tr>
+	    <th> Incomplete Dependent Activities</th>
+	  </tr>
+	  <c:forEach items="${depactlist}" var="depact">
+		<tr>
+			<td><c:out value="  ${depact.chActivity.actdescription}" /></td>
+		</tr>
+	  </c:forEach>
+	</table>
+</c:if>
 <br/>
 <br/>
 
@@ -50,17 +51,17 @@
 						<input type="hidden" name="appid" value="${applicant.appid}">
 					</form></td>
 	-->
-	
-	<form action="UpdateNationalityServlet" method="Post">
+	<c:if test="${application.appstatus != \"F\" && depflag == \"0\"}">
+		<form action="UpdateNationalityServlet" method="Post">
 						<input type="submit" value="Confirm">
 						<input type="hidden" name="status" value="P">
 					</form>
 					
-	<form action="UpdateNationalityServlet" method="Post">
+		<form action="UpdateNationalityServlet" method="Post">
 						<input type="submit" value="Reject">
 						<input type="hidden" name="status" value="F">
 					</form>				
-	
+	</c:if>
 <form action="LogoutServlet" method="post">
 	<input type="submit" value="Logout">
 </form>
