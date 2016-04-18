@@ -32,7 +32,7 @@ public class TestAccessMap {
 	   //   }
 	      ChApplicationActivity apa=getApplicationActivityByID(1);
 	      
-	      assertEquals(map.containsKey(apa),true) ;
+	      assertEquals(map.containsValue("1"),true) ;
 	   }
 	public static ChApplication getApplicationByID(long appid) {
 		EntityManager em=DBUtil.getEmFactory().createEntityManager();
