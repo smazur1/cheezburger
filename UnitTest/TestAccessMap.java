@@ -1,6 +1,7 @@
 import static org.junit.Assert.* ;
 
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -26,9 +27,12 @@ public class TestAccessMap {
 		System.out.println(ap.getAddress());
 		map=DBUtil.getAppActAccessMap(role.getChHrrole(), getApplicationByID(1));
 	      System.out.println("Test if method has been sucessfully worked") ;  
-	      System.out.println(map.size());
-	      System.out.println(getApplicationActivityByID(1).getChActivity().getActcode());
-	      assertEquals(map.get(getApplicationActivityByID(1)),"0") ;
+	   //  for(Entry<ChApplicationActivity,String> e: map.entrySet()){
+	   // 	 System.out.println(e.getKey().getChActivity().getActdescription() + e.getValue());
+	   //   }
+	      ChApplicationActivity apa=getApplicationActivityByID(1);
+	      
+	      assertEquals(map.containsKey(apa),true) ;
 	   }
 	public static ChApplication getApplicationByID(long appid) {
 		EntityManager em=DBUtil.getEmFactory().createEntityManager();
