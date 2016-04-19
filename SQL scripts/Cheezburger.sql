@@ -10,6 +10,9 @@ rem script for building cheezburger tables.
 drop table ch_role_activity;
 drop table ch_user_role;
 drop table ch_activity_dependency;
+drop table ch_comment;
+drop table ch_drug_screen;
+
 drop table ch_application_activity;
 drop table ch_application;
 drop table ch_jobactivity;
@@ -103,6 +106,22 @@ job_id int,
 actid int
 );
 
+create table ch_comment (
+ comid int primary key,
+ appactid int,
+ comments varchar(255),
+ moddate date
+  );
+  
+ create table ch_drug_screen (
+ dsid int primary key,
+ appactid int,
+ testtype char,
+ results char,
+ moddate date
+  );
+  
+
 ALTER TABLE ch_user_role
 ADD FOREIGN KEY (userid)
 REFERENCES ch_user(userid)
@@ -113,10 +132,6 @@ ALTER TABLE ch_user_role
 ADD FOREIGN KEY (hr_id)
 REFERENCES ch_hrrole(hr_id)
 ;
-
-
-
-
 
 alter table ch_jobactivity
 add foreign key (job_id)
@@ -157,6 +172,16 @@ references ch_activity (actid);
 alter table ch_activity_dependency
 add foreign key (depactid)
 references ch_activity (actid);
+
+ALTER TABLE ch_comment
+ADD FOREIGN KEY (appactid)
+REFERENCES ch_application_activity(appactid)
+;  
+
+ALTER TABLE ch_drug_screen
+ADD FOREIGN KEY (appactid)
+REFERENCES ch_application_activity(appactid)
+;  
 
 rem end ddl for CheezburgerHR
 *********************************************************************************
