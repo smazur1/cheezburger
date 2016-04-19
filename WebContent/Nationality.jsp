@@ -10,7 +10,7 @@
 <body>
 <h2>Citizenship Verification Check</h2>
 <!--  this is page 1 -->
-<!-- insert list of applicants here and show their app status -->
+<!-- Show user info and list incomplete dependent activity -->
 <p> User: <c:out value="  ${user.username}" />         HR Role: <c:out value="  ${user.chUserRoles[0].chHrrole.roleDescription}" /></p>
 <p>
 <c:if test="${depflag == \"1\"}">

@@ -24,7 +24,7 @@
 				<td> 
 				<c:if test="${entry.value==1}">
    <form action="ApplicantServlet" method="Post">
-						<input type="submit" value="view">
+						<input type="submit" value="update">
 						<input type="hidden" name="actid" value="${entry.key.chActivity.actid}">
 					</form>
 </c:if>
