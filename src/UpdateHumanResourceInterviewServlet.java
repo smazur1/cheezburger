@@ -49,7 +49,7 @@ public class UpdateHumanResourceInterviewServlet extends HttpServlet {
 		ChApplication application = (ChApplication) session.getAttribute("application");
 		
 		String appActStatus = request.getParameter("status");
-		ChApplicationActivity appAct = DBUtil.getApplicationActivityByID(application.getAppid(), 8);
+		ChApplicationActivity appAct = DBUtil.getApplicationActivityByID(application.getAppid(), 6);
 		
 		appAct.setActmoddate(now);
 		appAct.setActstatus(appActStatus);

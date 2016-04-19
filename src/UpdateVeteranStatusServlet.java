@@ -16,16 +16,16 @@ import model.ChApplicationActivity;
 import model.ChComment;
 
 /**
- * Servlet implementation class UpdateHiringManagerInterviewServlet
+ * Servlet implementation class UpdateVeteranStatusServlet
  */
-@WebServlet("/UpdateHiringManagerInterviewServlet")
-public class UpdateHiringManagerInterviewServlet extends HttpServlet {
+@WebServlet("/UpdateVeteranStatusServlet")
+public class UpdateVeteranStatusServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateHiringManagerInterviewServlet() {
+    public UpdateVeteranStatusServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -49,13 +49,13 @@ public class UpdateHiringManagerInterviewServlet extends HttpServlet {
 		ChApplication application = (ChApplication) session.getAttribute("application");
 		
 		String appActStatus = request.getParameter("status");
-		ChApplicationActivity appAct = DBUtil.getApplicationActivityByID(application.getAppid(), 7);
+		ChApplicationActivity appAct = DBUtil.getApplicationActivityByID(application.getAppid(), 5);
 		
 		appAct.setActmoddate(now);
 		appAct.setActstatus(appActStatus);
 		DBUtil.update(appAct);
 		
-		String alteredComment = request.getParameter("hiringmanagercomment");
+		String alteredComment = request.getParameter("veterancomment");
 		ChComment currentComment = DBUtil.getCommentByAppActId(appAct.getAppactid());
 		
 		currentComment.setComments(alteredComment);
