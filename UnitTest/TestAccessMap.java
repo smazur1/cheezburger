@@ -30,7 +30,7 @@ public class TestAccessMap {
 	     for(Entry<ChApplicationActivity,String> e: map.entrySet()){
 	    	 System.out.println(e.getKey().getChActivity().getActdescription() + e.getValue());
 	      }
-	      assertEquals(map.size(),6) ;
+	      assertEquals(map.size(),9) ;
 	   }
 	public static ChApplication getApplicationByID(long appid) {
 		EntityManager em=DBUtil.getEmFactory().createEntityManager();
