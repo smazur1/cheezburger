@@ -62,7 +62,7 @@ public class DrugTestUtil {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		String qString = "SELECT (max(c.dsid) + 1) FROM ChDrugScreen c";
 		
-		Query q = em.createQuery(qString, ChComment.class);
+		Query q = em.createQuery(qString, ChDrugScreen.class);
 		long newId = 1;
 		
 		try {
