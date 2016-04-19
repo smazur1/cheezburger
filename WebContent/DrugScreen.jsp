@@ -90,7 +90,7 @@
 			 </c:otherwise>
 		  </c:choose>
 			<br>
-			Comments: <br><textarea name="drugsreencomment" rows="8" cols="40" maxlength="255"><c:out value="${drugscreencomment}" /></textarea><br>
+			Comments: <br><textarea name="drugscreencomment" rows="8" cols="40" maxlength="255"><c:out value="${drugscreencomment}" /></textarea><br>
 			<input type="submit" value="Submit">
 		</form>	
 	</c:if>
