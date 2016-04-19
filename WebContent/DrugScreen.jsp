@@ -53,10 +53,22 @@
 	-->
 	<c:if test="${application.appstatus != \"F\" && depflag == \"0\"}">
 
-		<form action="UpdateEducationServlet" method="post">
-			<input type="radio" name="status" value="P">Confirm<br>
-			<input type="radio" name="status" value="F">Reject<br>
-			<input type="radio" name="status" value="I" checked>In process<br>
+		<form action="UpdateDrugScreenServlet" method="post">
+			Standard Panel: <br>
+			<input type="radio" name="standardpanel" value="P">Confirm<br>
+			<input type="radio" name="standardpanel" value="F">Reject<br>
+			<input type="radio" name="standardpanel" value="I" checked>In process<br>
+			<br>
+			DOT Testing: <br>
+			<input type="radio" name="dottesting" value="P">Confirm<br>
+			<input type="radio" name="dottesting" value="F">Reject<br>
+			<input type="radio" name="dottesting" value="I" checked>In process<br>
+			<br>
+			Alcohol Testing: <br>
+			<input type="radio" name="alcoholtesting" value="P">Confirm<br>
+			<input type="radio" name="alcoholtesting" value="F">Reject<br>
+			<input type="radio" name="alcoholtesting" value="I" checked>In process<br>
+			
 			<br>
 			Comments: <br><textarea name="drugsreencomment" rows="8" cols="40" maxlength="255"><c:out value="${drugscreencomment}" /></textarea><br>
 			<input type="submit" value="Submit">
