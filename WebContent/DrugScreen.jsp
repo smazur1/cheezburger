@@ -55,20 +55,40 @@
 
 		<form action="UpdateDrugScreenServlet" method="post">
 			Standard Panel: <br>
+          <c:choose>
+			<c:when test="${standardpanel.results != \"F\" && standardpanel.results != \"P\" }">
 			<input type="radio" name="standardpanel" value="P">Confirm<br>
 			<input type="radio" name="standardpanel" value="F">Reject<br>
 			<input type="radio" name="standardpanel" value="I" checked>In process<br>
+			</c:when>
+			<c:otherwise>
+			<c:out value="${standardpanel.results}" />
+			 </c:otherwise>
+		  </c:choose>
 			<br>
 			DOT Testing: <br>
+			<c:choose>
+			<c:when test="${dottesting.results != \"F\" && dottesting.results != \"P\" }">
 			<input type="radio" name="dottesting" value="P">Confirm<br>
 			<input type="radio" name="dottesting" value="F">Reject<br>
 			<input type="radio" name="dottesting" value="I" checked>In process<br>
+			</c:when>
+			<c:otherwise>
+			<c:out value="${dottesting.results}" />
+			 </c:otherwise>
+		  </c:choose>
 			<br>
 			Alcohol Testing: <br>
+			<c:choose>
+			<c:when test="${alcoholtesting.results != \"F\" && alcoholtesting.results != \"P\" }">
 			<input type="radio" name="alcoholtesting" value="P">Confirm<br>
 			<input type="radio" name="alcoholtesting" value="F">Reject<br>
 			<input type="radio" name="alcoholtesting" value="I" checked>In process<br>
-			
+			</c:when>
+			<c:otherwise>
+			<c:out value="${alcoholtesting.results}" />
+			 </c:otherwise>
+		  </c:choose>
 			<br>
 			Comments: <br><textarea name="drugsreencomment" rows="8" cols="40" maxlength="255"><c:out value="${drugscreencomment}" /></textarea><br>
 			<input type="submit" value="Submit">
