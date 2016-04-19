@@ -16,15 +16,37 @@
 				<option value="${job.jobId}"><c:out value="${job.jobDescription}" /></option>
 			</c:forEach>
 		</select><br>
-		Name: <input type="text" name="name"><br>
-		Address: <input type="text" name="address"><br>
-		Date of Birth: <input type="text" name="birthday"><br>
-		Education: <input type="text" name="education"><br>
-		Job History: <br><textarea name="jobHistory" rows="4" cols="40"></textarea><br>
-		References: <br><textarea name="references" rows="4" cols="40"></textarea><br>
-		Drug Use: <input type="text" name="drugUse"><br>
-		Veteran Status: <input type="text" name="veteran"><br>
-		Nationality: <input type="text" name="citizen"><br>
+		Name: <input type="text" name="name" value="<c:out value="${namdef}"/>">
+			<i style="color:red"><c:out value="${namerror}" /></i>
+			<br>
+		Address: <input type="text" name="address" value="<c:out value="${adddef}"/>">
+			<i style="color:red"><c:out value="${adderror}" /></i>
+			<br>
+		Date of Birth: <input type="text" name="birthday" value="<c:out value="${dobdef}"/>">
+			<i style="color:red"><c:out value="${doberror}" /></i>
+			<br>
+		Education: <input type="text" name="education" value="<c:out value="${edudef}"/>">
+			<i style="color:red"><c:out value="${eduerror}" /></i>
+			<br>
+		Job History: 
+			<i style="color:red"><c:out value="${joberror}" /></i>
+			<br>
+			<textarea name="jobHistory" rows="4" cols="40"><c:out value="${jobdef}"/></textarea>
+			<br>
+		References: 
+			<i style="color:red"><c:out value="${referror}" /></i>
+			<br>
+			<textarea name="references" rows="4" cols="40"><c:out value="${refdef}"/></textarea>
+			<br>
+		Drug Use: <input type="text" name="drugUse" value="<c:out value="${drudef}"/>">
+			<i style="color:red"><c:out value="${druerror}" /></i>
+			<br>
+		Veteran Status: <input type="text" name="veteran" value="<c:out value="${vetdef}"/>">
+			<i style="color:red"><c:out value="${veterror}" /></i>
+			<br>
+		Nationality: <input type="text" name="citizen" value="<c:out value="${natdef}"/>">
+			<i style="color:red"><c:out value="${naterror}" /></i>
+			<br>
 		<input type="submit" value="Submit Application">
 	</form>
 	
