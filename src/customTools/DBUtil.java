@@ -161,8 +161,8 @@ public class DBUtil {
 				appActivity.setChActivity(activity);
 				appActivity.setActstatus("I");
 				appActivity.setActmoddate(now);
-				DBUtil.populateComment(appActivity);
 				DBUtil.insert(appActivity);
+				DBUtil.populateComment(appActivity);
 			}
 		} catch(Exception e) {
 			e.printStackTrace();
