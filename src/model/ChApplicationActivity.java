@@ -2,8 +2,8 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -33,6 +33,14 @@ public class ChApplicationActivity implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="APPID")
 	private ChApplication chApplication;
+
+	//bi-directional many-to-one association to ChComment
+	@OneToMany(mappedBy="chApplicationActivity")
+	private List<ChComment> chComments;
+
+	//bi-directional many-to-one association to ChDrugScreen
+	@OneToMany(mappedBy="chApplicationActivity")
+	private List<ChDrugScreen> chDrugScreens;
 
 	public ChApplicationActivity() {
 	}
@@ -75,6 +83,50 @@ public class ChApplicationActivity implements Serializable {
 
 	public void setChApplication(ChApplication chApplication) {
 		this.chApplication = chApplication;
+	}
+
+	public List<ChComment> getChComments() {
+		return this.chComments;
+	}
+
+	public void setChComments(List<ChComment> chComments) {
+		this.chComments = chComments;
+	}
+
+	public ChComment addChComment(ChComment chComment) {
+		getChComments().add(chComment);
+		chComment.setChApplicationActivity(this);
+
+		return chComment;
+	}
+
+	public ChComment removeChComment(ChComment chComment) {
+		getChComments().remove(chComment);
+		chComment.setChApplicationActivity(null);
+
+		return chComment;
+	}
+
+	public List<ChDrugScreen> getChDrugScreens() {
+		return this.chDrugScreens;
+	}
+
+	public void setChDrugScreens(List<ChDrugScreen> chDrugScreens) {
+		this.chDrugScreens = chDrugScreens;
+	}
+
+	public ChDrugScreen addChDrugScreen(ChDrugScreen chDrugScreen) {
+		getChDrugScreens().add(chDrugScreen);
+		chDrugScreen.setChApplicationActivity(this);
+
+		return chDrugScreen;
+	}
+
+	public ChDrugScreen removeChDrugScreen(ChDrugScreen chDrugScreen) {
+		getChDrugScreens().remove(chDrugScreen);
+		chDrugScreen.setChApplicationActivity(null);
+
+		return chDrugScreen;
 	}
 
 }

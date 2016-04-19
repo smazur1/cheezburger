@@ -12,8 +12,6 @@
 		<class>model.ChRoleActivity</class>
 		<class>model.ChUser</class>
 		<class>model.ChUserRole</class>
-		<class>model.ChComment</class>
-		<class>model.ChDrugScreen</class>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
