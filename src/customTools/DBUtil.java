@@ -163,6 +163,9 @@ public class DBUtil {
 				appActivity.setActmoddate(now);
 				DBUtil.insert(appActivity);
 				DBUtil.populateComment(appActivity);
+				if(activity.getActid() == 4) {
+					DrugTestUtil.generateDrugTests(appActivity);
+				}
 			}
 		} catch(Exception e) {
 			e.printStackTrace();
