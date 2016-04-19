@@ -34,7 +34,7 @@ public class DrugTestUtil {
 		standardPanel.setDsid(drugTestId);
 		standardPanel.setChApplicationActivity(appAct);
 		standardPanel.setTesttype("S");
-		standardPanel.setResults("");
+		standardPanel.setResults("I");
 		standardPanel.setModdate(now);
 		DBUtil.insert(standardPanel);
 		
@@ -42,7 +42,7 @@ public class DrugTestUtil {
 		dotTesting.setDsid(drugTestId + 1);
 		dotTesting.setChApplicationActivity(appAct);
 		dotTesting.setTesttype("D");
-		dotTesting.setResults("");
+		dotTesting.setResults("I");
 		dotTesting.setModdate(now);
 		DBUtil.insert(dotTesting);
 		
@@ -50,7 +50,7 @@ public class DrugTestUtil {
 		alcoholTesting.setDsid(drugTestId + 2);
 		alcoholTesting.setChApplicationActivity(appAct);
 		alcoholTesting.setTesttype("A");
-		alcoholTesting.setResults("");
+		alcoholTesting.setResults("I");
 		alcoholTesting.setModdate(now);
 		DBUtil.insert(alcoholTesting);
 	}
