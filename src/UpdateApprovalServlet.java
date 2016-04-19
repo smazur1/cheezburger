@@ -66,6 +66,9 @@ public class UpdateApprovalServlet extends HttpServlet {
 		if(appActStatus.equalsIgnoreCase("F")) {
 			application.setAppstatus("F");
 			sendTo = "Rejection.jsp";
+		} else if(appActStatus.equalsIgnoreCase("P")) {
+			application.setAppstatus("P");
+			sendTo = "OfferLetter.jsp";
 		}
 		DBUtil.update(application);
 		
