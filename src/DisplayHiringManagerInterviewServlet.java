@@ -47,7 +47,7 @@ public class DisplayHiringManagerInterviewServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		ChApplication ca = (ChApplication) session.getAttribute("application" );
-		long localactid = 8;  //  "GI"
+		long localactid = 7;  //  "HI"
 		
 		
 	    ArrayList<ChApplicationActivity> depactlist = DependencyCheck.getListByJobId

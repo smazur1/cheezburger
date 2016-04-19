@@ -47,7 +47,7 @@ public class DisplayHumanResourceInterviewServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		ChApplication ca = (ChApplication) session.getAttribute("application" );
-		long localactid = 8;  //  "GI"
+		long localactid = 6;  //  "HR"
 		
 		
 	    ArrayList<ChApplicationActivity> depactlist = DependencyCheck.getListByJobId

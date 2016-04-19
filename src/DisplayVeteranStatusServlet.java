@@ -47,7 +47,7 @@ public class DisplayVeteranStatusServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		ChApplication ca = (ChApplication) session.getAttribute("application" );
-		long localactid = 8;  //  "GI"
+		long localactid = 5;  //  "VS"
 		
 		
 	    ArrayList<ChApplicationActivity> depactlist = DependencyCheck.getListByJobId
