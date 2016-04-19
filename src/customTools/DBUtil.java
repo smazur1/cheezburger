@@ -148,7 +148,7 @@ public class DBUtil {
 		Date now = new Date();
 		
 		EntityManager em = emf.createEntityManager();
-		String qString = "SELECT c FROM ChJobactivity c WHERE c.chJobtype.jobId = " + popApp.getChJobtype().getJobId();
+		String qString = "SELECT c FROM ChJobactivity c WHERE c.chJobtype.jobId = " + popApp.getChJobtype().getJobId() + " ORDER BY c.chActivity.actid";
 		TypedQuery<ChJobactivity> q = em.createQuery(qString, ChJobactivity.class);
 		List<ChJobactivity> jobActivityList = null;
 		try {
