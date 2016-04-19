@@ -33,7 +33,7 @@ public class DrugTestUtil {
 		ChDrugScreen standardPanel = new ChDrugScreen();
 		standardPanel.setDsid(drugTestId);
 		standardPanel.setChApplicationActivity(appAct);
-		standardPanel.setTesttype("Standard Panel");
+		standardPanel.setTesttype("S");
 		standardPanel.setResults("");
 		standardPanel.setModdate(now);
 		DBUtil.insert(standardPanel);
@@ -41,7 +41,7 @@ public class DrugTestUtil {
 		ChDrugScreen dotTesting = new ChDrugScreen();
 		dotTesting.setDsid(drugTestId + 1);
 		dotTesting.setChApplicationActivity(appAct);
-		dotTesting.setTesttype("DOT Testing");
+		dotTesting.setTesttype("D");
 		dotTesting.setResults("");
 		dotTesting.setModdate(now);
 		DBUtil.insert(dotTesting);
@@ -49,7 +49,7 @@ public class DrugTestUtil {
 		ChDrugScreen alcoholTesting = new ChDrugScreen();
 		alcoholTesting.setDsid(drugTestId + 2);
 		alcoholTesting.setChApplicationActivity(appAct);
-		alcoholTesting.setTesttype("Alcohol Testing");
+		alcoholTesting.setTesttype("A");
 		alcoholTesting.setResults("");
 		alcoholTesting.setModdate(now);
 		DBUtil.insert(alcoholTesting);
@@ -63,7 +63,9 @@ public class DrugTestUtil {
 		long newId = 1;
 		
 		try {
-			newId = (long) q.getSingleResult();
+			if(!q.getResultList().isEmpty()) {
+				newId = (long) q.getSingleResult();
+			}
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
