@@ -63,6 +63,7 @@
 			</c:when>
 			<c:otherwise>
 			<c:out value="${standardpanel.results}" />
+			<input type="hidden" name="standardpanel" value="${standardpanel.results}">
 			 </c:otherwise>
 		  </c:choose>
 			<br>
@@ -75,6 +76,7 @@
 			</c:when>
 			<c:otherwise>
 			<c:out value="${dottesting.results}" />
+			<input type="hidden" name="dottesting" value="${dottesting.results}">
 			 </c:otherwise>
 		  </c:choose>
 			<br>
@@ -87,6 +89,7 @@
 			</c:when>
 			<c:otherwise>
 			<c:out value="${alcoholtesting.results}" />
+			<input type="hidden" name="alcoholtesting" value="${alcoholtesting.results}">
 			 </c:otherwise>
 		  </c:choose>
 			<br>
