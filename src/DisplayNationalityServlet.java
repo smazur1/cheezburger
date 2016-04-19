@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import customTools.DBUtil;
 import model.ChApplication;
 import model.ChApplicationActivity;
+import model.ChComment;
 import customTools.DependencyCheck;
 
 /**
@@ -71,6 +72,12 @@ public class DisplayNationalityServlet extends HttpServlet {
 	    	request.setAttribute("depflag", "0");
 	    }
 	    request.setAttribute("depactlist", depactlist);
+	    
+	    //get current comment from table and put into comment field
+	    ChApplicationActivity currentAppAct = DBUtil.getApplicationActivityByID(ca.getAppid(), localactid);
+	    ChComment currentComment = DBUtil.getCommentByAppActId(currentAppAct.getAppactid());
+	    request.setAttribute("nationalitycomment", currentComment.getComments());
+	    
 		request.getRequestDispatcher("Nationality.jsp").forward(request, response);
 	}
 

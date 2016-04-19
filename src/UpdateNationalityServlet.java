@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import customTools.DBUtil;
 import model.ChApplication;
 import model.ChApplicationActivity;
+import model.ChComment;
 
 /**
  * Servlet implementation class UpdateNationalityServlet
@@ -46,13 +47,20 @@ public class UpdateNationalityServlet extends HttpServlet {
 		String sendTo = "ApplicationActivityListServlet";
 		Date now = new Date();
 		ChApplication application = (ChApplication) session.getAttribute("application");
+		
 		String appActStatus = request.getParameter("status");
-		String comment = request.getParameter("nationalitycomment");
 		ChApplicationActivity appAct = DBUtil.getApplicationActivityByID(application.getAppid(), 1);
 		
 		appAct.setActmoddate(now);
 		appAct.setActstatus(appActStatus);
 		DBUtil.update(appAct);
+		
+		String alteredComment = request.getParameter("nationalitycomment");
+		ChComment currentComment = DBUtil.getCommentByAppActId(appAct.getAppactid());
+		
+		currentComment.setComments(alteredComment);
+		currentComment.setModdate(now);
+		DBUtil.update(currentComment);
 		
 		application.setModdate(now);
 		if(appActStatus.equalsIgnoreCase("F")) {
