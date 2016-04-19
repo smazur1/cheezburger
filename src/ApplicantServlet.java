@@ -42,23 +42,23 @@ public class ApplicantServlet extends HttpServlet {
 		switch(actid) {
 		case "1": sendTo = "DisplayNationalityServlet";
 		break;
-		case "2": sendTo = "";
+		case "2": sendTo = "DisplayWorkHistoryServlet";
 		break;
-		case "3": sendTo = "";
+		case "3": sendTo = "DisplayEducationServlet";
 		break;
-		case "4": sendTo = "";
+		case "4": sendTo = "DisplayDrugScreenServlet";
 		break;
-		case "5": sendTo = "";
+		case "5": sendTo = "DisplayVeteranStatusServlet";
 		break;
-		case "6": sendTo = "";
+		case "6": sendTo = "DisplayHumanResourceInterviewServlet";
 		break;
-		case "7": sendTo = "";
+		case "7": sendTo = "DisplayHiringManagerInterviewServlet";
 		break;
-		case "8": sendTo = "";
+		case "8": sendTo = "DisplayGroupInterviewServlet";
 		break;
-		case "9": sendTo = "";
+		case "9": sendTo = "DisplayCodingTestServlet";
 		break;
-		case "10": sendTo = "";
+		case "10": sendTo = "DisplayApprovalServlet";
 		break;
 		
 		}
