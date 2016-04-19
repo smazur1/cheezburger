@@ -32,5 +32,9 @@
 			</tr>
 		</c:forEach>
 		</table>
+		
+<form action="ApplicationListServlet" method="post">
+		<input type="submit" value="Return to application list">
+	</form>		
 </body>
 </html>
