@@ -177,8 +177,10 @@ public class DBUtil {
 	public static List<ChApplication> getApplicationList() {
 		EntityManager em = emf.createEntityManager();
 		List<ChApplication> appList = null;
+		String qString = "SELECT c FROM ChApplication c ORDER BY c.appid";
+		TypedQuery<ChApplication> q = em.createQuery(qString, ChApplication.class);
 		try {
-			appList = em.createNamedQuery("ChApplication.findAll", ChApplication.class).getResultList();
+			appList = q.getResultList();
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
