@@ -1,0 +1,13 @@
+drop table ch_role_activity;
+drop table ch_user_role;
+drop table ch_activity_dependency;
+drop table ch_comment;
+drop table ch_drug_screen;
+drop table ch_application_activity;
+drop table ch_application;
+drop table ch_jobactivity;
+drop table ch_activity;
+drop table ch_user;
+drop table ch_hrrole;
+drop table ch_jobtype;
+commit;
