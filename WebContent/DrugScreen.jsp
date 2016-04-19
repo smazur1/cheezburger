@@ -44,7 +44,15 @@
 				</tr>
 			</table>
 		
+		
+		
+	<!--  			<td> <form action="SessionApplicationServlet" method="Post">
+						<input type="submit" value="view">
+						<input type="hidden" name="appid" value="${applicant.appid}">
+					</form></td>
+	-->
 	<c:if test="${application.appstatus != \"F\" && depflag == \"0\"}">
+
 		<form action="UpdateEducationServlet" method="post">
 			<input type="radio" name="status" value="P">Confirm<br>
 			<input type="radio" name="status" value="F">Reject<br>

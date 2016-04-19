@@ -33,14 +33,14 @@
 <th> Application ID</th>
 <th> Applicant Name</th>
 <th> Application Status</th>
-<th> Nationality</th>
+<th> Education</th>
 </tr>
 
 			<tr>
 				<td><c:out value="  ${application.appid}" /></td>
 				<td><c:out value="  ${application.name}" /></td>
 				<td><c:out value="  ${application.appstatus}" /></td>
-				<td><c:out value="  ${application.citizen }"></c:out></td>
+				<td><c:out value="  ${application.education }"></c:out></td>
 				</tr>
 			</table>
 		
