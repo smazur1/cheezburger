@@ -118,7 +118,9 @@ public class DBUtil {
 		long newId = 1;
 		
 		try {
-			newId = (long) q.getSingleResult();
+			if(!q.getResultList().isEmpty()) {
+				newId = (long) q.getSingleResult();
+			}
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -135,7 +137,9 @@ public class DBUtil {
 		long newId = 1;
 		
 		try {
-			newId = (long) q.getSingleResult();
+			if(!q.getResultList().isEmpty()) {
+				newId = (long) q.getSingleResult();
+			}
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -297,7 +301,9 @@ public class DBUtil {
 		long newId = 1;
 		
 		try {
-			newId = (long) q.getSingleResult();
+			if(!q.getResultList().isEmpty()) {
+				newId = (long) q.getSingleResult();
+			}
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
