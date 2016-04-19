@@ -13,7 +13,7 @@ public class DrugTestUtil {
 	
 	public static ChDrugScreen getTestByTypeAndActAppId(String testType, long appActId) {
 		EntityManager em=DBUtil.getEmFactory().createEntityManager();
-		String qString = "SELECT c FROM ChComment c WHERE c.chApplicationActivity.appactid = " + appActId + " AND c.testtype = '" + testType + "'";
+		String qString = "SELECT c FROM ChDrugScreen c WHERE c.chApplicationActivity.appactid = " + appActId + " AND c.testtype = '" + testType + "'";
 		TypedQuery<ChDrugScreen> q = em.createQuery(qString, ChDrugScreen.class);
 		ChDrugScreen drugScreen = null;
 		try {

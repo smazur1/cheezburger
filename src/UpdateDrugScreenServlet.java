@@ -11,9 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import customTools.DBUtil;
+import customTools.DrugTestUtil;
 import model.ChApplication;
 import model.ChApplicationActivity;
 import model.ChComment;
+import model.ChDrugScreen;
 
 /**
  * Servlet implementation class UpdateDrugScreenServlet
@@ -47,12 +49,9 @@ public class UpdateDrugScreenServlet extends HttpServlet {
 		Date now = new Date();
 		ChApplication application = (ChApplication) session.getAttribute("application");
 
-		String appActStatus = request.getParameter("status");
+		
 		ChApplicationActivity appAct = DBUtil.getApplicationActivityByID(application.getAppid(), 4);
-
 		appAct.setActmoddate(now);
-		appAct.setActstatus(appActStatus);
-		DBUtil.update(appAct);
 
 		String alteredComment = request.getParameter("drugscreencomment");
 		ChComment currentComment = DBUtil.getCommentByAppActId(appAct.getAppactid());
@@ -60,8 +59,36 @@ public class UpdateDrugScreenServlet extends HttpServlet {
 		currentComment.setComments(alteredComment);
 		currentComment.setModdate(now);
 		DBUtil.update(currentComment);
-
-		application.setModdate(now);
+		
+		ChDrugScreen standardpanel=DrugTestUtil.getTestByTypeAndActAppId("S",appAct.getAppactid());
+	    ChDrugScreen dottesting=DrugTestUtil.getTestByTypeAndActAppId("D",appAct.getAppactid());
+	    ChDrugScreen alcoholtesting=DrugTestUtil.getTestByTypeAndActAppId("A",appAct.getAppactid());
+	    
+	    standardpanel.setResults(request.getParameter("standardpanel"));
+	    standardpanel.setModdate(now);
+	    DBUtil.update(standardpanel);
+	    
+	    dottesting.setResults(request.getParameter("dottesting"));
+	    dottesting.setModdate(now);
+	    DBUtil.update(dottesting);
+	    
+	    alcoholtesting.setResults(request.getParameter("alcoholtesting"));
+	    alcoholtesting.setModdate(now);
+	    DBUtil.update(alcoholtesting);
+	    
+	    application.setModdate(now);
+	    String appActStatus="I";
+	    if(standardpanel.getResults().equals("F")||dottesting.getResults().equals("F")||alcoholtesting.getResults().equals("F")){
+	    appActStatus = "F";
+	    }else if(standardpanel.getResults().equals("P")&&dottesting.getResults().equals("P")&&alcoholtesting.getResults().equals("P")){
+	    appActStatus = "P";	
+	    }else{
+	    appActStatus = "I";	
+	    }
+		appAct.setActstatus(appActStatus);
+		DBUtil.update(appAct);
+	    
+		
 		if (appActStatus.equalsIgnoreCase("F")) {
 			application.setAppstatus("F");
 			sendTo = "Rejection.jsp";
