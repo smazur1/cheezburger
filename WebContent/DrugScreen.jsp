@@ -5,10 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Degree Validation</title>
+<title>Drug Screen</title>
 </head>
 <body>
-<h2>Degree Validation</h2>
+<h2>Drug Screen</h2>
 <!--  this is page 1 -->
 <!-- Show user info and list incomplete dependent activity -->
 <p> User: <c:out value="  ${user.username}" />         HR Role: <c:out value="  ${user.chUserRoles[0].chHrrole.roleDescription}" /></p>
