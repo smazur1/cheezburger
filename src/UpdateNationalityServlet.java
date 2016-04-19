@@ -47,6 +47,7 @@ public class UpdateNationalityServlet extends HttpServlet {
 		Date now = new Date();
 		ChApplication application = (ChApplication) session.getAttribute("application");
 		String appActStatus = request.getParameter("status");
+		String comment = request.getParameter("nationalitycomment");
 		ChApplicationActivity appAct = DBUtil.getApplicationActivityByID(application.getAppid(), 1);
 		
 		appAct.setActmoddate(now);

@@ -14,6 +14,7 @@ import javax.persistence.TypedQuery;
 import model.ChActivity;
 import model.ChApplication;
 import model.ChApplicationActivity;
+import model.ChComment;
 import model.ChHrrole;
 import model.ChJobactivity;
 import model.ChJobtype;
@@ -160,6 +161,7 @@ public class DBUtil {
 				appActivity.setChActivity(activity);
 				appActivity.setActstatus("I");
 				appActivity.setActmoddate(now);
+				DBUtil.populateComment(appActivity);
 				DBUtil.insert(appActivity);
 			}
 		} catch(Exception e) {
@@ -271,4 +273,30 @@ public class DBUtil {
 		return app;
 	}
 	
+	public static void populateComment(ChApplicationActivity appAct) {
+		ChComment newComment = new ChComment();
+		long commentId = DBUtil.getNewCommentId();
+		Date now = new Date();
+		newComment.setComid(commentId);
+		newComment.setChApplicationActivity(appAct);
+		newComment.setComments("");
+		newComment.setModdate(now);		
+	}
+	
+	public static long getNewCommentId() {
+		EntityManager em = emf.createEntityManager();
+		String qString = "SELECT (max(c.appid) + 1) FROM ChComment c";
+		
+		Query q = em.createQuery(qString, ChComment.class);
+		long newId = 0;
+		
+		try {
+			newId = (long) q.getSingleResult();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+		return newId;
+	}
 }
