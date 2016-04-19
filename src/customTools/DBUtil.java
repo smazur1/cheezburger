@@ -280,7 +280,8 @@ public class DBUtil {
 		newComment.setComid(commentId);
 		newComment.setChApplicationActivity(appAct);
 		newComment.setComments("");
-		newComment.setModdate(now);		
+		newComment.setModdate(now);	
+		DBUtil.insert(newComment);
 	}
 	
 	public static long getNewCommentId() {
@@ -298,5 +299,20 @@ public class DBUtil {
 			em.close();
 		}
 		return newId;
+	}
+	
+	public static ChComment getCommentByAppActId(long appActId) {
+		EntityManager em=DBUtil.getEmFactory().createEntityManager();
+		String qString = "SELECT c FROM ChComment c WHERE c.chApplicationActivity.appactid = " + appActId;
+		TypedQuery<ChComment> q = em.createQuery(qString, ChComment.class);
+		ChComment comment = null;
+		try {
+			comment = q.getSingleResult();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+		return comment;
 	}
 }
