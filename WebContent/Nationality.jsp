@@ -66,7 +66,7 @@
 			<input type="radio" name="status" value="F">Reject<br>
 			<input type="radio" name="status" value="I" checked>In process<br>
 			<br>
-			Comments: <br><textarea name="jobHistory" rows="8" cols="40"></textarea>
+			Comments: <br><textarea name="nationalitycomment" rows="8" cols="40" maxlength="255"><c:out value="${nationalitycomment}" /></textarea><br>
 			<input type="submit" value="Submit">
 		</form>	
 	</c:if>
