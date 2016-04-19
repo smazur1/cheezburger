@@ -286,7 +286,7 @@ public class DBUtil {
 	
 	public static long getNewCommentId() {
 		EntityManager em = emf.createEntityManager();
-		String qString = "SELECT (max(c.appid) + 1) FROM ChComment c";
+		String qString = "SELECT (max(c.comid) + 1) FROM ChComment c";
 		
 		Query q = em.createQuery(qString, ChComment.class);
 		long newId = 1;
