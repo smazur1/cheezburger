@@ -115,7 +115,7 @@ public class DBUtil {
 		String qString = "SELECT (max(c.appid) + 1) FROM ChApplication c";
 		
 		Query q = em.createQuery(qString, ChApplication.class);
-		long newId = 0;
+		long newId = 1;
 		
 		try {
 			newId = (long) q.getSingleResult();
@@ -132,7 +132,7 @@ public class DBUtil {
 		String qString = "SELECT (max(c.appactid) + 1) FROM ChApplicationActivity c";
 		
 		Query q = em.createQuery(qString, ChApplication.class);
-		long newId = 0;
+		long newId = 1;
 		
 		try {
 			newId = (long) q.getSingleResult();
@@ -289,7 +289,7 @@ public class DBUtil {
 		String qString = "SELECT (max(c.appid) + 1) FROM ChComment c";
 		
 		Query q = em.createQuery(qString, ChComment.class);
-		long newId = 0;
+		long newId = 1;
 		
 		try {
 			newId = (long) q.getSingleResult();
