@@ -18,7 +18,7 @@ import model.ChComment;
 /**
  * Servlet implementation class UpdateHumanResourceInterview
  */
-@WebServlet("/UpdateHumanResourceInterview")
+@WebServlet("/UpdateHumanResourceInterviewServlet")
 public class UpdateHumanResourceInterviewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
