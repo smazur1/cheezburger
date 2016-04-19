@@ -52,7 +52,7 @@
 					</form></td>
 	-->
 	<c:if test="${application.appstatus != \"F\" && depflag == \"0\"}">
-		<form action="UpdateNationalityServlet" method="Post">
+	<!--	<form action="UpdateNationalityServlet" method="Post">
 						<input type="submit" value="Confirm">
 						<input type="hidden" name="status" value="P">
 					</form>
@@ -60,7 +60,15 @@
 		<form action="UpdateNationalityServlet" method="Post">
 						<input type="submit" value="Reject">
 						<input type="hidden" name="status" value="F">
-					</form>				
+					</form>			-->
+		<form action="UpdateNationalityServlet" method="post">
+			<input type="radio" name="status" value="P">Confirm<br>
+			<input type="radio" name="status" value="F">Reject<br>
+			<input type="radio" name="status" value="I" checked>In process<br>
+			<br>
+			Comments: <br><textarea name="jobHistory" rows="8" cols="40"></textarea>
+			<input type="submit" value="Submit">
+		</form>	
 	</c:if>
 <form action="LogoutServlet" method="post">
 	<input type="submit" value="Logout">
