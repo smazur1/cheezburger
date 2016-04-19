@@ -8,7 +8,7 @@
 <title>Approval</title>
 </head>
 <body>
-<h2>Coding Test</h2>
+<h2>Approval</h2>
 <!-- Show user info and list incomplete dependent activity -->
 <p> User: <c:out value="  ${user.username}" />         HR Role: <c:out value="  ${user.chUserRoles[0].chHrrole.roleDescription}" /></p>
 <p>
