@@ -10,7 +10,9 @@
 <body>
 <!-- this is page 2 -->
 <p> User: <c:out value="  ${user.username}" />         HR Role: <c:out value="  ${user.chUserRoles[0].chHrrole.roleDescription}" /></p>
-		
+<br>
+<h4>Application ID: <c:out value="${application.appid}" /></h4>
+<br>
 <table>
 <tr>
 <th> Activity</th>
