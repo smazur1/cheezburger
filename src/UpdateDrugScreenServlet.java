@@ -16,16 +16,16 @@ import model.ChApplicationActivity;
 import model.ChComment;
 
 /**
- * Servlet implementation class UpdateApprovalServlet
+ * Servlet implementation class UpdateDrugScreenServlet
  */
-@WebServlet("/UpdateApprovalServlet")
-public class UpdateApprovalServlet extends HttpServlet {
+@WebServlet("/UpdateDrugScreenServlet")
+public class UpdateDrugScreenServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateApprovalServlet() {
+    public UpdateDrugScreenServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,43 +35,39 @@ public class UpdateApprovalServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doPost(request, response);
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		String sendTo = "ApplicationActivityListServlet";
 		Date now = new Date();
 		ChApplication application = (ChApplication) session.getAttribute("application");
-		
+
 		String appActStatus = request.getParameter("status");
-		ChApplicationActivity appAct = DBUtil.getApplicationActivityByID(application.getAppid(), 10);
-		
+		ChApplicationActivity appAct = DBUtil.getApplicationActivityByID(application.getAppid(), 4);
+
 		appAct.setActmoddate(now);
 		appAct.setActstatus(appActStatus);
 		DBUtil.update(appAct);
-		
-		String alteredComment = request.getParameter("approvalcomment");
+
+		String alteredComment = request.getParameter("drugscreencomment");
 		ChComment currentComment = DBUtil.getCommentByAppActId(appAct.getAppactid());
-		
+
 		currentComment.setComments(alteredComment);
 		currentComment.setModdate(now);
 		DBUtil.update(currentComment);
-		
+
 		application.setModdate(now);
-		if(appActStatus.equalsIgnoreCase("F")) {
+		if (appActStatus.equalsIgnoreCase("F")) {
 			application.setAppstatus("F");
 			sendTo = "Rejection.jsp";
-		} else if(appActStatus.equalsIgnoreCase("P")) {
-			application.setAppstatus("P");
-			sendTo = "OfferLetter.jsp";
 		}
 		DBUtil.update(application);
-		
+
 		session.setAttribute("application", application);
 		request.getRequestDispatcher(sendTo).forward(request, response);
 	}

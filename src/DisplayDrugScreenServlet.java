@@ -47,7 +47,7 @@ public class DisplayDrugScreenServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		ChApplication ca = (ChApplication) session.getAttribute("application" );
-		long localactid = 8;  //  "GI"
+		long localactid = 4;  //  "GI"
 		
 		
 	    ArrayList<ChApplicationActivity> depactlist = DependencyCheck.getListByJobId
