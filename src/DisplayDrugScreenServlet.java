@@ -12,9 +12,11 @@ import javax.servlet.http.HttpSession;
 
 import customTools.DBUtil;
 import customTools.DependencyCheck;
+import customTools.DrugTestUtil;
 import model.ChApplication;
 import model.ChApplicationActivity;
 import model.ChComment;
+import model.ChDrugScreen;
 
 /**
  * Servlet implementation class DisplayDrugScreenServlet
@@ -65,8 +67,13 @@ public class DisplayDrugScreenServlet extends HttpServlet {
 	    //get current comment from table and put into comment field
 	    ChApplicationActivity currentAppAct = DBUtil.getApplicationActivityByID(ca.getAppid(), localactid);
 	    ChComment currentComment = DBUtil.getCommentByAppActId(currentAppAct.getAppactid());
+	    ChDrugScreen standardpanel=DrugTestUtil.getTestByTypeAndActAppId("S",currentAppAct.getAppactid());
+	    ChDrugScreen dottesting=DrugTestUtil.getTestByTypeAndActAppId("D",currentAppAct.getAppactid());
+	    ChDrugScreen alcoholtesting=DrugTestUtil.getTestByTypeAndActAppId("A",currentAppAct.getAppactid());
 	    request.setAttribute("drugscreencomment", currentComment.getComments());
-	    
+	    request.setAttribute("standardpanel", standardpanel);
+	    request.setAttribute("dottesting", dottesting);
+	    request.setAttribute("alcoholtesting", alcoholtesting);
 		request.getRequestDispatcher("DrugScreen.jsp").forward(request, response);
 	}
 
