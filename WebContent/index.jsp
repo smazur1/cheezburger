@@ -20,20 +20,23 @@
 </head>
 <body>
 <div class="container">
-  <div class="jumbotron">
-    <h1>Dalton HR</h1>
-    <img src="Images/CheezburgerHR_HDZ_Logo.png">
-    <p></p> 
-  </div>
+	<div class="page-header text-center">
+		<h1>Dalton HR</h1>
+		<img src="Images/CheezburgerHR_HDZ_Logo.png">
+		<p></p> 
+	</div>
+	<div class="row">
+		<div class="col-sm-6 text-center">
+			<form action="Login.jsp" method="post">
+				<input type="submit" value="HR Login">
+			</form>
+		</div>
+		<div class="col-sm-6 text-center">
+			<form action="NewApplicationFormServlet" method="post">
+				<input type="submit" value="New Application">
+			</form>
+		</div>
+	</div>
 </div>
-
-	<form action="Login.jsp" method="post">
-		<input type="submit" value="HR Login">
-	</form>
-	<i style="color:red"><c:out value="${loginError}" /></i>
-	
-	<form action="NewApplicationFormServlet" method="post">
-		<input type="submit" value="New Application">
-	</form>
 </body>
 </html>

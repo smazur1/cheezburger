@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		String sendTo = "index.jsp";
+		String sendTo = "Login.jsp";
 		String username = request.getParameter("username");
 		String password = request.getParameter("userpass");
 		ChUser currentUser = DBUtil.findUser(username, password);
