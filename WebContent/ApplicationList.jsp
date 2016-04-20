@@ -33,7 +33,8 @@
 
 <!--  this is page 1 -->
 <!-- insert list of applicants here and show their app status -->
-<p> User: <c:out value="  ${user.username}" />         HR Role: <c:out value="  ${user.chUserRoles[0].chHrrole.roleDescription}" /></p>
+<p> User: <c:out value="  ${user.username}" />        <br> HR Role: <c:out value="  ${user.chUserRoles[0].chHrrole.roleDescription}" /></p>
+<br><br>
 <table>
 <tr>
 <th> Application ID</th>

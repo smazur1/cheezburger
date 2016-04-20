@@ -34,7 +34,8 @@
 
 <h2>Approval</h2>
 <!-- Show user info and list incomplete dependent activity -->
-<p> User: <c:out value="  ${user.username}" />         HR Role: <c:out value="  ${user.chUserRoles[0].chHrrole.roleDescription}" /></p>
+<p> User: <c:out value="  ${user.username}" />        <br> HR Role: <c:out value="  ${user.chUserRoles[0].chHrrole.roleDescription}" /></p>
+<br><br>
 <p>
 	<c:if test="${depflag == \"1\"}">
 		<table>
