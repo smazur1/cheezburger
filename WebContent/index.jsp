@@ -19,11 +19,26 @@
 <title>Welcome</title>
 </head>
 <body>
+
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">
+				<img src="Images/CheezburgerHR_HDZ_Logo.png" height="30">
+			</a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="index.jsp">Home</a></li>
+			<li><a href="Login.jsp">Employee Login</a></li>
+			<li><a href="NewApplicationFormServlet">New Application</a></li>
+		</ul>
+	</div>
+</nav>
+
 <div class="container">
 	<div class="page-header text-center">
 		<h1>Dalton HR</h1>
-		<img src="Images/CheezburgerHR_HDZ_Logo.png">
-		<p></p> 
+		<img src="Images/CheezburgerHR_HDZ_Logo.png" height="100">
 	</div>
 	<div class="row">
 		<div class="col-sm-6 text-center">
