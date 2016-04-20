@@ -33,12 +33,5 @@
 	<a>Rejection letter has been sent to <c:out value="${application.name}" /></a><br>
 	<img src="Images/sad_cat.png" alt="Rejection" height="300">
 
-	<form action="ApplicationListServlet" method="post">
-		<input type="submit" value="Return to application list">
-	</form>
-	
-	<form action="LogoutServlet" method="post">
-		<input type="submit" value="Logout">
-	</form>
 </body>
 </html>

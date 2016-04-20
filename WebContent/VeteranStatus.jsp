@@ -92,17 +92,6 @@
 			<input type="submit" value="Submit">
 		</form>	
 	</c:if>
-	
-	<form action="ApplicationActivityListServlet" method="post">
-		<input type="submit" value="Return to activity list">
-	</form>	
 
-	<form action="ApplicationListServlet" method="post">
-		<input type="submit" value="Return to application list">
-	</form>
-
-	<form action="LogoutServlet" method="post">
-		<input type="submit" value="Logout">
-	</form>	
 </body>
 </html>
