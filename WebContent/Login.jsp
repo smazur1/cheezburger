@@ -1,5 +1,3 @@
-<!--Eric made this-->
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -20,23 +18,19 @@
 </head>
 <body>
 <div class="container">
-	<div class="page-header text-center">
-		<h1>Dalton HR</h1>
-		<img src="Images/CheezburgerHR_HDZ_Logo.png">
-		<p></p> 
-	</div>
-	<div class="row">
-		<div class="col-sm-6 text-center">
-			<form action="Login.jsp" method="post">
-				<input type="submit" value="HR Login">
-			</form>
-		</div>
-		<div class="col-sm-6 text-center">
-			<form action="NewApplicationFormServlet" method="post">
-				<input type="submit" value="New Application">
-			</form>
-		</div>
-	</div>
+  <div class="jumbotron">
+    <h1>Dalton HR</h1>
+    <img src="Images/CheezburgerHR_HDZ_Logo.png">
+    <p></p> 
+  </div>
 </div>
+
+	<form action="LoginServlet" method="post">
+		Username: <input type="text" name="username"><br>
+		Password: <input type="password" name="userpass"><br>
+		<input type="submit" value="Login">
+	</form>
+	<i style="color:red"><c:out value="${loginError}" /></i>
+	
 </body>
 </html>
