@@ -44,7 +44,7 @@ public class DisplayApprovalServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 		
 		ChApplication ca = (ChApplication) session.getAttribute("application" );
 		long localactid = 10;  //  "AP"
