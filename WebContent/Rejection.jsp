@@ -8,6 +8,22 @@
 <title>Rejection</title>
 </head>
 <body>
+
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">
+					<img src="Images/CheezburgerHR_HDZ_Logo.png" height="30">
+				</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href="LogoutServlet">Logout</a></li>
+				<li><a href="ApplicationListServlet">Application List</a></li>
+				<li><a href="NewApplicationFormServlet">New Application</a></li>
+			</ul>
+		</div>
+	</nav>
+
 	<a>Rejection letter has been sent to <c:out value="${application.name}" /></a><br>
 	<img src="Images/sad_cat.png" alt="Rejection" height="300">
 
