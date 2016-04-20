@@ -24,6 +24,7 @@
 				</a>
 			</div>
 			<ul class="nav navbar-nav">
+				<li><a href="index.jsp">Home</a></li>
 				<li><a href="LogoutServlet">Logout</a></li>
 				<li><a href="ApplicationListServlet">Application List</a></li>	
 				<li><a href="ApplicationActivityListServlet">Activity List</a></li>
@@ -35,7 +36,8 @@
 <h2>Drug Screen</h2>
 <!--  this is page 1 -->
 <!-- Show user info and list incomplete dependent activity -->
-<p> User: <c:out value="  ${user.username}" />         HR Role: <c:out value="  ${user.chUserRoles[0].chHrrole.roleDescription}" /></p>
+<p> User: <c:out value="  ${user.username}" />        <br> HR Role: <c:out value="  ${user.chUserRoles[0].chHrrole.roleDescription}" /></p>
+<br><br>
 <p>
 <c:if test="${depflag == \"1\"}">
 	<table>
@@ -65,15 +67,15 @@
 				<td>
 				<c:choose>
 						<c:when test="${application.appstatus ==  \"P\"}">
-							<img src="Images/burger.png" alt="Pass" height="40">
+							<img src="Images/burger.png" alt="Pass" title="Pass" height="40">
 						</c:when>
 						
 						<c:when test="${application.appstatus ==  \"F\"}">
-							<img src="Images/sad_cat.png" alt="Fail" height="40">
+							<img src="Images/sad_cat.png" alt="Fail" title="Fail" height="40">
 						</c:when>
 						
 						<c:otherwise>
-							<img src="Images/cat.png" alt="In Process" height="40">
+							<img src="Images/cat.png" alt="In Process" title="In Process" height="40">
 						</c:otherwise>
 					</c:choose>
 				</td>
@@ -155,17 +157,5 @@
 		</form>	
 	</c:if>
 	
-	<form action="ApplicationActivityListServlet" method="post">
-		<input type="submit" value="Return to activity list">
-	</form>	
-
-	<form action="ApplicationListServlet" method="post">
-		<input type="submit" value="Return to application list">
-	</form>
-
-	<form action="LogoutServlet" method="post">
-		<input type="submit" value="Logout">
-	</form>
-		
 </body>
 </html>

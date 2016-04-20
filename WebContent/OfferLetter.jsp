@@ -23,6 +23,7 @@
 				</a>
 			</div>
 			<ul class="nav navbar-nav">
+				<li><a href="index.jsp">Home</a></li>
 				<li><a href="LogoutServlet">Logout</a></li>
 				<li><a href="ApplicationListServlet">Application List</a></li>
 				<li><a href="NewApplicationFormServlet">New Application</a></li>
@@ -30,15 +31,8 @@
 		</div>
 	</nav>
 
-	<a>Offer letter has been sent to <c:out value="${application.name}" /></a><br>
-	<img src="Images/happy_cat.png" alt="Congratulations!" height="300">
+	Offer letter has been sent to <c:out value="${application.name}" /><br>
+	<img src="Images/happy_cat.png" alt="Congratulations!" title="Congratulations!" height="300">
 
-	<form action="ApplicationListServlet" method="post">
-		<input type="submit" value="Return to application list">
-	</form>
-	
-	<form action="LogoutServlet" method="post">
-		<input type="submit" value="Logout">
-	</form>
 </body>
 </html>
