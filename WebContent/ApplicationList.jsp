@@ -23,7 +23,21 @@
 			<tr>
 				<td><c:out value="  ${applicant.appid}" /></td>
 				<td><c:out value="  ${applicant.name}" /></td>
-				<td><c:out value="  ${applicant.appstatus}" /></td>
+				<td>
+					<c:choose>
+						<c:when test="${applicant.appstatus ==  \"P\"}">
+							<img src="Images/burger.png" alt="Pass" height="40">
+						</c:when>
+						
+						<c:when test="${applicant.appstatus ==  \"F\"}">
+							<img src="Images/sad_cat.png" alt="Fail" height="40">
+						</c:when>
+						
+						<c:otherwise>
+							<img src="Images/cat.png" alt="In Process" height="40">
+						</c:otherwise>
+					</c:choose>
+				</td>
 				<td>
 				 <c:if test="${applicant.appstatus!=\"F\"}">
 					<form action="SessionApplicationServlet" method="Post">

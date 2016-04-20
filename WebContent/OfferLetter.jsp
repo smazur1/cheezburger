@@ -9,6 +9,7 @@
 </head>
 <body>
 	<a>Offer letter has been sent to <c:out value="${application.name}" /></a><br>
+	<img src="Images/happy_cat.png" alt="Congratulations!" height="300">
 
 	<form action="ApplicationListServlet" method="post">
 		<input type="submit" value="Return to application list">
