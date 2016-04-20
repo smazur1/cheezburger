@@ -22,7 +22,21 @@
 <c:forEach items="${activitymap}" var="entry">
 			<tr>
 				<td><c:out value="  ${entry.key.chActivity.actdescription}" /></td>
-				<td><c:out value="  ${entry.key.actstatus}" /></td>
+				<td>
+				<c:choose>
+						<c:when test="${entry.key.actstatus ==  \"P\"}">
+							<img src="Images/burger.png" alt="Pass" height="40">
+						</c:when>
+						
+						<c:when test="${entry.key.actstatus ==  \"F\"}">
+							<img src="Images/sad_cat.png" alt="Fail" height="40">
+						</c:when>
+						
+						<c:otherwise>
+							<img src="Images/cat.png" alt="In Process" height="40">
+						</c:otherwise>
+					</c:choose>
+				</td>
 				<td> 
 				<c:if test="${entry.value==1}">
    <form action="ApplicantServlet" method="Post">
