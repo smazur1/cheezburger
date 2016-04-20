@@ -14,6 +14,27 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Welcome</title>
+<style> 
+div1 {
+    width: 200px;
+    height: 100px;
+    background-color: white;
+    position: relative;
+    animation-name: welcome;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+@keyframes welcome {
+    0%   {left:0px; }
+    25%  {left:500px;}
+    50%  {left:1000px;}
+    75%  {left:500px; }
+    100% {left:0px; }
+}
+h5 {
+    text-decoration: underline;
+}
+</style>
 </head>
 <body>
 
@@ -48,8 +69,10 @@
 		<br>
 		<h3>Welcome to Dalton HR!</h3>
 		<br>
+	<div1>	
 		<h5>Please use the navigation bar to select your desired task.</h5>
-	</div>
+	</div1>
+	</div>	
 </div>
 </body>
 </html>
