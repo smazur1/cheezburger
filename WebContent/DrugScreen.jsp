@@ -60,7 +60,14 @@
 			<input type="radio" name="standardpanel" value="I" checked>In process<br>
 			</c:when>
 			<c:otherwise>
-			<c:out value="${standardpanel.results}" />
+			        <c:choose>
+						<c:when test="${standardpanel.results ==  \"P\"}">
+							<img src="Images/burger.png" alt="Pass" height="40">
+						</c:when>
+						<c:otherwise>
+							<img src="Images/sad_cat.png" alt="Fail" height="40">
+						</c:otherwise>
+					</c:choose>
 			<input type="hidden" name="standardpanel" value="${standardpanel.results}">
 			 </c:otherwise>
 		  </c:choose>
@@ -73,7 +80,14 @@
 			<input type="radio" name="dottesting" value="I" checked>In process<br>
 			</c:when>
 			<c:otherwise>
-			<c:out value="${dottesting.results}" />
+			<c:choose>
+						<c:when test="${dottesting.results ==  \"P\"}">
+							<img src="Images/burger.png" alt="Pass" height="40">
+						</c:when>
+						<c:otherwise>
+							<img src="Images/sad_cat.png" alt="Fail" height="40">
+						</c:otherwise>
+					</c:choose>
 			<input type="hidden" name="dottesting" value="${dottesting.results}">
 			 </c:otherwise>
 		  </c:choose>
@@ -86,7 +100,14 @@
 			<input type="radio" name="alcoholtesting" value="I" checked>In process<br>
 			</c:when>
 			<c:otherwise>
-			<c:out value="${alcoholtesting.results}" />
+			<c:choose>
+						<c:when test="${alcoholtesting.results ==  \"P\"}">
+							<img src="Images/burger.png" alt="Pass" height="40">
+						</c:when>
+						<c:otherwise>
+							<img src="Images/sad_cat.png" alt="Fail" height="40">
+						</c:otherwise>
+					</c:choose>
 			<input type="hidden" name="alcoholtesting" value="${alcoholtesting.results}">
 			 </c:otherwise>
 		  </c:choose>

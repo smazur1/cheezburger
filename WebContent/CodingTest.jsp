@@ -36,7 +36,21 @@
 		<tr>
 			<td><c:out value="  ${application.appid}" /></td>
 			<td><c:out value="  ${application.name}" /></td>
-			<td><c:out value="  ${application.appstatus}" /></td>
+			<td>
+			<c:choose>
+						<c:when test="${application.appstatus ==  \"P\"}">
+							<img src="Images/burger.png" alt="Pass" height="40">
+						</c:when>
+						
+						<c:when test="${application.appstatus ==  \"F\"}">
+							<img src="Images/sad_cat.png" alt="Fail" height="40">
+						</c:when>
+						
+						<c:otherwise>
+							<img src="Images/cat.png" alt="In Process" height="40">
+						</c:otherwise>
+					</c:choose>
+			</td>
 		</tr>
 	</table>
 
