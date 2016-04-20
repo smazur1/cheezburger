@@ -1,5 +1,3 @@
-<!--Eric made this-->
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -27,13 +25,12 @@
   </div>
 </div>
 
-	<form action="Login.jsp" method="post">
-		<input type="submit" value="HR Login">
+	<form action="LoginServlet" method="post">
+		Username: <input type="text" name="username"><br>
+		Password: <input type="password" name="userpass"><br>
+		<input type="submit" value="Login">
 	</form>
 	<i style="color:red"><c:out value="${loginError}" /></i>
 	
-	<form action="NewApplicationFormServlet" method="post">
-		<input type="submit" value="New Application">
-	</form>
 </body>
 </html>
