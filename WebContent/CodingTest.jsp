@@ -9,6 +9,23 @@
 <title>Coding Test</title>
 </head>
 <body>
+
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">
+					<img src="Images/CheezburgerHR_HDZ_Logo.png" height="30">
+				</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href="LogoutServlet">Logout</a></li>
+				<li><a href="ApplicationListServlet">Application List</a></li>	
+				<li><a href="ApplicationActivityListServlet">Activity List</a></li>
+				<li><a href="NewApplicationFormServlet">New Application</a></li>
+			</ul>
+		</div>
+	</nav>
+
 <h2>Coding Test</h2>
 <!-- Show user info and list incomplete dependent activity -->
 <p> User: <c:out value="  ${user.username}" />         HR Role: <c:out value="  ${user.chUserRoles[0].chHrrole.roleDescription}" /></p>

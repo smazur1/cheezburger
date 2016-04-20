@@ -17,13 +17,21 @@
 <title>Welcome</title>
 </head>
 <body>
-<div class="container">
-  <div class="jumbotron">
-    <h1>Dalton HR</h1>
-    <img src="Images/CheezburgerHR_HDZ_Logo.png">
-    <p></p> 
-  </div>
-</div>
+
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">
+					<img src="Images/CheezburgerHR_HDZ_Logo.png" height="30">
+				</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href="index.jsp">Home</a></li>
+				<li class="active"><a href="Login.jsp">Employee Login</a></li>
+				<li><a href="NewApplicationFormServlet">New Application</a></li>
+			</ul>
+		</div>
+	</nav>
 
 	<form action="LoginServlet" method="post">
 		Username: <input type="text" name="username"><br>

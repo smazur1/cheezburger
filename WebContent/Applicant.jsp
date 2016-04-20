@@ -9,6 +9,23 @@
 <title>Applicant info</title>
 </head>
 <body>
+
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">
+					<img src="Images/CheezburgerHR_HDZ_Logo.png" height="30">
+				</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href="LogoutServlet">Logout</a></li>
+				<li><a href="ApplicationListServlet">Application List</a></li>	
+				<li class="active"><a href="ApplicationActivityListServlet">Activity List</a></li>
+				<li><a href="NewApplicationFormServlet">New Application</a></li>
+			</ul>
+		</div>
+	</nav>
+
 <!-- this is page 2 -->
 <p> User: <c:out value="  ${user.username}" />         HR Role: <c:out value="  ${user.chUserRoles[0].chHrrole.roleDescription}" /></p>
 <br>
