@@ -60,6 +60,8 @@ public class ApplicantServlet extends HttpServlet {
 		break;
 		case "10": sendTo = "DisplayApprovalServlet";
 		break;
+		case "11": sendTo = "DisplayDrivingRecordReviewServlet";
+		break;
 		
 		}
 		request.getRequestDispatcher(sendTo).forward(request, response);
