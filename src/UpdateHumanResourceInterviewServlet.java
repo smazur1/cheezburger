@@ -35,7 +35,7 @@ public class UpdateHumanResourceInterviewServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doPost(request, response);
+		//doPost(request, response);
 	}
 
 	/**

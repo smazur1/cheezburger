@@ -17,6 +17,8 @@
 	</form>
 	<i style="color:red"><c:out value="${loginError}" /></i>
 	
-	<a href="NewApplicationFormServlet">New Application</a>
+	<form action="NewApplicationFormServlet" method="post">
+		<input type="submit" value="New Application">
+	</form>
 </body>
 </html>
