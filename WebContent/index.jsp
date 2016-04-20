@@ -34,20 +34,13 @@
 
 <div class="container">
 	<div class="page-header text-center">
-		<h1>Dalton HR</h1>
 		<img src="Images/CheezburgerHR_HDZ_Logo.png" height="100">
 	</div>
-	<div class="row">
-		<div class="col-sm-6 text-center">
-			<form action="Login.jsp" method="post">
-				<input type="submit" value="HR Login">
-			</form>
-		</div>
-		<div class="col-sm-6 text-center">
-			<form action="NewApplicationFormServlet" method="post">
-				<input type="submit" value="New Application">
-			</form>
-		</div>
+	<div>
+		<br>
+		<h3>Welcome to Dalton HR!</h3>
+		<br>
+		<h5>Please use the navigation bar to select your desired task.</h5>
 	</div>
 </div>
 </body>
