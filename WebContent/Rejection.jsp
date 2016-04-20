@@ -31,7 +31,7 @@
 		</div>
 	</nav>
 
-	<a>Rejection letter has been sent to <c:out value="${application.name}" /></a><br>
+	Rejection letter has been sent to <c:out value="${application.name}" /><br>
 	<img src="Images/sad_cat.png" alt="Rejection" title="Rejection" height="300">
 
 </body>

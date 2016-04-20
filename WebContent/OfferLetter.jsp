@@ -31,7 +31,7 @@
 		</div>
 	</nav>
 
-	<a>Offer letter has been sent to <c:out value="${application.name}" /></a><br>
+	Offer letter has been sent to <c:out value="${application.name}" /><br>
 	<img src="Images/happy_cat.png" alt="Congratulations!" title="Congratulations!" height="300">
 
 </body>
