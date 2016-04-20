@@ -65,15 +65,15 @@
 			<td>
              <c:choose>
 						<c:when test="${application.appstatus ==  \"P\"}">
-							<img src="Images/burger.png" alt="Pass" height="40">
+							<img src="Images/burger.png" alt="Pass" title="Pass" height="40">
 						</c:when>
 						
 						<c:when test="${application.appstatus ==  \"F\"}">
-							<img src="Images/sad_cat.png" alt="Fail" height="40">
+							<img src="Images/sad_cat.png" alt="Fail" title="Fail" height="40">
 						</c:when>
 						
 						<c:otherwise>
-							<img src="Images/cat.png" alt="In Process" height="40">
+							<img src="Images/cat.png" alt="In Process" title="In Process" height="40">
 						</c:otherwise>
 					</c:choose>
 			

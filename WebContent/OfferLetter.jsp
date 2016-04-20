@@ -32,7 +32,7 @@
 	</nav>
 
 	<a>Offer letter has been sent to <c:out value="${application.name}" /></a><br>
-	<img src="Images/happy_cat.png" alt="Congratulations!" height="300">
+	<img src="Images/happy_cat.png" alt="Congratulations!" title="Congratulations!" height="300">
 
 </body>
 </html>
