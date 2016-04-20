@@ -25,6 +25,7 @@
 				</a>
 			</div>
 			<ul class="nav navbar-nav">
+				<li><a href="index.jsp">Home</a></li>
 				<li><a href="LogoutServlet">Logout</a></li>
 				<li><a href="ApplicationListServlet">Application List</a></li>	
 				<li><a href="ApplicationActivityListServlet">Activity List</a></li>

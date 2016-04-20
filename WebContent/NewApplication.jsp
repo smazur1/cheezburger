@@ -25,13 +25,13 @@
 				</a>
 			</div>
 			<ul class="nav navbar-nav">
+				<li><a href="index.jsp">Home</a></li>
 				<c:choose>
 					<c:when test="${loggedin == \"yes\"}">
 						<li><a href="LogoutServlet">Logout</a></li>
 						<li><a href="ApplicationListServlet">Application List</a></li>
 					</c:when>
 					<c:otherwise>
-						<li><a href="index.jsp">Home</a></li>
 						<li><a href="Login.jsp">Employee Login</a></li>
 					</c:otherwise>
 				</c:choose>
